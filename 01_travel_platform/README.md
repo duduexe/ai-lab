@@ -1,6 +1,6 @@
 # 01 Travel planning platform
 
-Video: <add TikTok link>  |  Try it: <add live link>
+Video: <add TikTok link>  |  Try it: <[add live link](https://duduexe.github.io/ai-lab/01_travel_platform/)>
 
 ## What it does
 A single HTML page where friends who leave from different cities choose a one-week holiday in Europe together: filters, a map, a group shortlist, a plan (accommodation, itinerary, travel logistics, tasks) and an Excel export.
