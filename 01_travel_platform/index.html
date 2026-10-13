@@ -1,0 +1,1031 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#12312A;--soft:#4C6259;--faint:#8A9A93;--paper:#F1F3EF;--card:#FFF;--line:#D8DED8;
+    --signal:#D9A21B;--brick:#A9482A;--r:10px}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 18px 70px}
+  h1,h2,h3{font-family:'Bricolage Grotesque',Inter,sans-serif;font-weight:500;margin:0;letter-spacing:-.01em}
+  h1{font-size:30px;line-height:1.12;font-weight:700}
+  h2{font-size:20px;margin-bottom:4px}
+  h3{font-size:16px}
+  p{margin:0 0 12px}
+  .sub{color:var(--soft);font-size:14px}
+  .meta{font-size:12.5px;color:var(--soft)}
+  header.top{padding:28px 0 14px;border-bottom:1px solid var(--line)}
+  input,select,textarea,button{font-family:inherit;font-size:14px;color:var(--ink)}
+  input[type=text],input[type=number],input[type=url],select,textarea{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:9px 11px;outline:none;width:100%}
+  input:focus,select:focus,textarea:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(18,49,42,.08)}
+  button{cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;min-height:42px}
+  button:hover{border-color:var(--soft)}
+  button.solid{background:var(--ink);color:#fff;border-color:var(--ink)}
+  button.pick{background:#FBF4E2;border-color:#EBD9A8;color:#6B5410}
+  button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+  .tabs{display:flex;gap:4px;margin:18px 0 20px;background:#E4E8E3;padding:4px;border-radius:12px;width:fit-content;max-width:100%;flex-wrap:wrap}
+  .tabs button{border:none;background:transparent;padding:8px 16px;border-radius:8px;min-height:auto}
+  .tabs button[aria-selected=true]{background:var(--card)}
+  .subnav{display:flex;gap:16px;border-bottom:1px solid var(--line);margin-bottom:20px;flex-wrap:wrap}
+  .subnav button{border:none;background:none;padding:8px 0;border-radius:0;border-bottom:2px solid transparent;color:var(--soft);min-height:auto}
+  .subnav button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+  [hidden]{display:none!important}
+  .grid2{display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start}
+  @media(max-width:860px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .q{margin-bottom:16px}
+  .q>.lab{display:block;font-weight:500;font-size:14px;margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 13px;font-size:13px;min-height:auto}
+  .chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  input[type=range]{width:100%;accent-color:var(--ink);padding:0;border:none;background:none}
+  .count{font-variant-numeric:tabular-nums;font-weight:500}
+  .tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:6px;background:#EAEFEA;color:var(--soft);margin:3px 4px 0 0}
+  .tag.warn{background:#FBEEE6;color:var(--brick)}
+  .tag.ok{background:#EAF1E9;color:#3B6B3F}
+  .tag.pick{background:#FBF4E2;color:#6B5410}
+  .opt{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;background:var(--card)}
+  .opt.fits{border-color:var(--ink)}
+  .score{font-family:'Bricolage Grotesque';font-size:19px;font-weight:700;min-width:34px}
+  .empty{color:var(--faint);font-size:14px;padding:14px 0}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .stack>*+*{margin-top:10px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;color:var(--soft);font-weight:500}
+  .day{border-left:2px solid var(--signal);padding-left:14px;margin-bottom:16px}
+  .daynum{font-family:'Bricolage Grotesque';font-weight:700;font-size:13px;color:var(--signal)}
+  .err{color:var(--brick);font-size:13px;margin-top:6px}
+  .ok{color:#3B6B3F;font-size:13px;margin-top:6px}
+  .done{text-decoration:line-through;color:var(--faint)}
+  .status{font-size:12.5px;padding:6px 11px;border-radius:8px;display:inline-block;background:#EAF1E9;color:#3B6B3F}
+  .note{background:#FBF4E2;border:1px solid #EBD9A8;border-radius:12px;padding:12px 14px;font-size:13.5px;color:#6B5410}
+  a{color:var(--ink)}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div style="display:flex;gap:14px;align-items:center">
+    <svg width="52" height="62" viewBox="0 0 52 62" role="img" aria-label="Drawing of a halved avocado" style="flex:none">
+      <path d="M26 3c11 0 21 11 21 25 0 17-9 31-21 31S5 45 5 28C5 14 15 3 26 3z" fill="#3E6B33"/>
+      <path d="M26 8c8.6 0 16 8.8 16 20 0 13.6-7 25-16 25s-16-11.4-16-25C10 16.8 17.4 8 26 8z" fill="#C7D96A"/>
+      <ellipse cx="26" cy="33" rx="9.5" ry="11" fill="#8A5A2B"/>
+      <ellipse cx="22.6" cy="28.5" rx="2.6" ry="3.4" fill="#A9743F" opacity=".85"/>
+    </svg>
+    <div>
+      <h1>Group holiday planning platform</h1>
+      <p class="sub" style="max-width:62ch;margin:6px 0 0">One week in the EU. Fifty places reachable from Geneva by rail or sleeper, so the dog never flies, while London and Berlin fly to the nearest airport.</p>
+    </div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <span id="status" class="status">Ready</span>
+    <button id="export" style="min-height:36px;padding:7px 13px">Export to Excel</button>
+  </div>
+  <div class="row" style="margin-top:10px">
+    <input type="text" id="me" placeholder="Your name" style="max-width:220px">
+  </div>
+</header>
+
+<div class="tabs" role="tablist">
+  <button role="tab" id="tab-align" aria-selected="true">Align</button>
+  <button role="tab" id="tab-short" aria-selected="false">Shortlist</button>
+  <button role="tab" id="tab-plan" aria-selected="false">The plan</button>
+  
+</div>
+
+<section id="p-align">
+<div class="grid2">
+  <div class="card">
+    <h2>Your answers</h2>
+    <p class="sub" style="margin-bottom:14px">The list on the right narrows as you choose.</p>
+    <div class="q"><span class="lab">Where are you travelling from?</span>
+      <div class="chips" id="q-origin"></div>
+      <span class="meta" id="dognote"></span></div>
+    <div class="q"><span class="lab">Kind of place</span><div class="chips" id="q-land"></div></div>
+    <div class="q"><span class="lab">What you want to do</span>
+      <div class="chips" id="q-act"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="act-new" placeholder="Add your own" style="flex:1;min-width:130px">
+        <button id="act-add">Add</button></div></div>
+    <div class="q"><span class="lab">Bed budget per person per night <span class="count" id="price-out"></span></span>
+      <input type="range" id="q-price" min="60" max="220" step="10" value="120"></div>
+    <div class="q" id="q-rail-wrap" hidden><span class="lab">Longest daytime rail journey from Geneva <span class="count" id="hrs-out"></span></span>
+      <input type="range" id="q-hours" min="2" max="12" step="1" value="8"></div>
+    <button class="solid" id="save" style="width:100%">Save my answers</button>
+    <div class="err" id="err" hidden></div>
+    <div id="who" style="margin-top:14px"></div>
+  </div>
+
+  <div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between;align-items:baseline">
+        <h2>Options <span class="count sub" id="shown"></span></h2>
+        <select id="mode" style="width:auto;min-width:170px">
+          <option value="me">What fits me</option>
+          <option value="all-people">What fits everyone</option>
+          <option value="all">Show all 41</option>
+        </select>
+      </div>
+      <div id="map" style="margin-top:10px"></div>
+      <p class="meta" style="margin-top:6px">Dark rings are the three starting points. Green dots are matching places, grey are close, brick red are your picks, pink are places the group added.</p>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="row" style="justify-content:space-between;align-items:baseline">
+        <h2>Pick your favourites</h2><span class="meta" id="pickstate"></span>
+      </div>
+      <div id="list"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h2>Add a place we've missed</h2>
+      <div class="row" style="margin-top:10px">
+        <input type="text" id="m-name" placeholder="City or town" style="flex:1;min-width:150px">
+        <div style="flex:1;min-width:130px;position:relative">
+          <input type="text" id="m-country" placeholder="Country" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" style="width:100%">
+          <div id="country-menu" hidden style="position:absolute;z-index:30;left:0;right:0;top:calc(100% + 4px);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 6px 18px rgba(18,49,42,.13);max-height:220px;overflow:auto"></div>
+        </div>
+      </div>
+      <input type="text" id="m-desc" placeholder="Description, optional" style="margin-top:8px">
+      <p class="meta" style="margin:8px 0 0">Only countries within reach of Geneva are listed. The pink dot lands at the middle of that country, not the exact town.</p>
+      <button id="m-add" style="margin-top:8px">Add it</button>
+      <div class="err" id="m-err" hidden></div>
+      <div class="ok" id="m-ok" hidden></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h2>Group shortlist</h2><div id="group"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="p-short" hidden>
+  <div class="card">
+    <h2>Group shortlist</h2>
+    <p class="sub">Everything anyone has starred, ranked by how many people picked it.</p>
+    <div id="group2"></div>
+  </div>
+</section>
+
+<section id="p-plan" hidden>
+  <div class="subnav" role="tablist">
+    <button role="tab" data-page="dest" aria-selected="true">Destination</button>
+    <button role="tab" data-page="stay" aria-selected="false">Accommodation</button>
+    <button role="tab" data-page="it" aria-selected="false">Itinerary</button>
+    <button role="tab" data-page="travel" aria-selected="false">Getting there</button>
+    <button role="tab" data-page="tasks" aria-selected="false">Tasks</button>
+  </div>
+  <div class="page" id="pg-dest">
+    <div class="card"><h2>Destination</h2>
+      <div class="row" style="margin-top:10px">
+        <select id="chosen" style="max-width:320px"></select>
+        <button id="set-chosen">Lock it in</button></div>
+      <div id="chosen-note" style="margin-top:12px"></div></div>
+  </div>
+  <div class="page" id="pg-stay" hidden>
+    <div class="card"><h2>Accommodation</h2>
+      <div class="stack" style="margin:12px 0;max-width:520px">
+        <input type="text" id="a-name" placeholder="Name of the place">
+        <input type="url" id="a-link" placeholder="Link">
+        <div class="row"><input type="number" id="a-price" placeholder="€ per night, total" style="flex:1;min-width:130px">
+          <input type="number" id="a-sleeps" placeholder="Sleeps" style="width:100px"></div>
+        <select id="a-dog"><option value="unknown">Dog policy not checked</option>
+          <option value="yes">Dogs allowed</option><option value="fee">Dogs, extra fee</option>
+          <option value="no">No dogs</option></select>
+        <button id="a-add">Add option</button><div class="err" id="a-err" hidden></div></div>
+      <div id="a-list"></div></div>
+  </div>
+  <div class="page" id="pg-it" hidden>
+    <div class="card"><h2>Itinerary</h2>
+      <div class="row" style="margin:12px 0"><select id="i-day" style="width:105px"></select>
+        <input type="text" id="i-what" placeholder="What we're doing" style="flex:1;min-width:170px">
+        <input type="text" id="i-who" placeholder="Suggested by" style="width:130px">
+        <button id="i-add">Add</button></div>
+      <div class="err" id="i-err" hidden></div><div id="i-list"></div></div>
+  </div>
+  <div class="page" id="pg-travel" hidden>
+    <div class="card"><h2>Getting there</h2>
+      <div id="tsum" style="margin:12px 0"></div>
+      <h3 style="margin-top:22px;padding-top:16px;border-top:1px solid var(--line)">Travel plans</h3>
+      <p class="sub">Who lands when, and where. Sorted by arrival.</p>
+      <div class="stack" style="margin:12px 0;max-width:620px">
+        <div class="row">
+          <input type="text" id="t-who" placeholder="Name" style="flex:1;min-width:130px">
+          <select id="t-origin" style="flex:1;min-width:150px"><option>London</option><option>Berlin</option><option value="Geneva">Geneva, with dog</option><option>Somewhere else</option></select>
+        </div>
+        <div class="row">
+          <label style="flex:1;min-width:140px;font-size:12px;color:var(--soft)">Arrives
+            <input type="date" id="t-adate" style="margin-top:3px"></label>
+          <label style="width:120px;font-size:12px;color:var(--soft)">At
+            <input type="time" id="t-atime" style="margin-top:3px"></label>
+        </div>
+        <input type="text" id="t-aat" placeholder="Arriving where, e.g. Nice Côte d'Azur airport or Milano Centrale">
+        <div class="row">
+          <label style="flex:1;min-width:140px;font-size:12px;color:var(--soft)">Leaves
+            <input type="date" id="t-ddate" style="margin-top:3px"></label>
+          <label style="width:120px;font-size:12px;color:var(--soft)">At
+            <input type="time" id="t-dtime" style="margin-top:3px"></label>
+        </div>
+        <input type="text" id="t-dfrom" placeholder="Leaving from, if different">
+        <button id="t-add">Add travel plan</button>
+        <div class="err" id="t-err" hidden></div>
+      </div>
+      <div id="t-list"></div></div>
+  </div>
+  <div class="page" id="pg-tasks" hidden>
+    <div class="card"><h2>Tasks</h2>
+      <div class="stack" style="margin:12px 0;max-width:520px">
+        <input type="text" id="k-title" placeholder="Task">
+        <div class="row"><input type="text" id="k-owner" placeholder="Owner" style="flex:1;min-width:120px">
+          <label style="flex:1;min-width:150px;font-size:12px;color:var(--soft)">By when
+            <input type="date" id="k-due" style="margin-top:3px"></label></div>
+        <button id="k-add">Add task</button><div class="err" id="k-err" hidden></div></div>
+      <div id="k-list"></div></div>
+  </div>
+</section>
+
+<section id="p-diag" hidden>
+  <div class="card"><h2>Diagnostics</h2><div class="meta" id="diag"></div></div>
+</section>
+
+<p class="meta" style="margin-top:24px;max-width:74ch">Rail times from Geneva are approximate door-to-door estimates, except Paris and Marseille which are published direct services. Flying times are calculated from the great-circle distance plus a fixed allowance, so they are indicative only. Bed prices are rough estimates, not quotes. Switzerland is excluded because it is not in the EU. Check routes, prices and pet policies before booking.</p>
+</div>
+
+<script>
+const ORIGINS=[['London','London'],['Berlin','Berlin'],['Geneva','Geneva, with dog']];
+const LANDS=[['sea','Coast'],['mountain','Mountains'],['lake','Lakes'],['country','Countryside'],['city','City']];
+const ACTS=['Hiking','Party','Beach','Food and wine','Museums','Cycling','Water sports','Spa','Doing nothing'];
+const MAXPICKS=5;
+const HOME={London:[51.51,-0.13],Berlin:[52.52,13.40],Geneva:[46.20,6.14]};
+
+const RAW=[
+['Annecy','France',45.90,6.13,1.5,'lake,mountain','Hiking,Water sports,Cycling,Doing nothing',120,'Geneva','Closest option and the easiest with a dog'],
+['Chamonix','France',45.92,6.87,2.5,'mountain','Hiking,Spa,Doing nothing',130,'Geneva','High mountains, some lifts refuse dogs'],
+['Lyon','France',45.76,4.84,2,'city','Food and wine,Museums,Party',100,'Lyon','Big food city, very walkable'],
+['Grenoble','France',45.19,5.72,3,'mountain,city','Hiking,Cycling,Museums',85,'Lyon','Mountains from the tram stop'],
+['Beaune, Burgundy','France',47.02,4.84,3,'country','Food and wine,Cycling,Doing nothing',120,'Lyon','Wine villages and flat cycling'],
+['Paris','France',48.86,2.35,3.2,'city','Museums,Party,Food and wine',160,'Paris','Direct 3h11 from Geneva'],
+['Avignon and the Luberon','France',43.95,4.81,3.5,'country','Food and wine,Cycling,Hiking',140,'Marseille','Village houses with pools'],
+['Aix-en-Provence','France',43.53,5.45,3.5,'city,country','Food and wine,Museums',140,'Marseille','Elegant, very hot in September'],
+['Marseille and the Calanques','France',43.30,5.37,3.75,'sea,city','Beach,Hiking,Party,Water sports',110,'Marseille','Direct 3h43 from Geneva in summer'],
+['Nîmes and the Camargue','France',43.84,4.36,4,'country,sea','Cycling,Beach,Museums',95,'Montpellier','Wide open beaches and horses'],
+['Montpellier','France',43.61,3.88,4.5,'sea,city','Beach,Party,Museums,Water sports',105,'Montpellier','Student city with beaches nearby'],
+['Colmar and Alsace','France',48.08,7.36,4.5,'country,city','Food and wine,Cycling,Museums',110,'Basel','Villages and vineyards'],
+['Perpignan and the Côte Vermeille','France',42.70,2.90,6,'sea','Beach,Water sports,Food and wine',95,'Perpignan','Rocky coast, quieter than Provence'],
+['Nice and the Côte d\'Azur','France',43.70,7.27,7,'sea,city','Beach,Party,Museums,Food and wine',130,'Nice','Direct flights from Berlin with easyJet and Eurowings'],
+['Bordeaux','France',44.84,-0.58,7.5,'city,country','Food and wine,Cycling,Museums',115,'Bordeaux','Wine country and Atlantic beaches'],
+['Toulouse','France',43.60,1.44,7.5,'city','Food and wine,Museums,Party',95,'Toulouse','Warm, cheap, good eating'],
+['Rennes and Brittany','France',48.11,-1.68,7,'sea,country','Beach,Hiking,Cycling',100,'Nantes','Cool summers and a wild coast'],
+['Aosta Valley','Italy',45.74,7.32,4.5,'mountain,country','Hiking,Spa,Food and wine',90,'Turin','Quiet Alps, cheaper than the French side'],
+['Milan','Italy',45.46,9.19,4,'city','Museums,Party,Food and wine',120,'Milan','Direct from London Gatwick and Berlin with easyJet'],
+['Turin','Italy',45.07,7.69,4.5,'city','Museums,Food and wine,Doing nothing',90,'Turin','Arcaded, underrated, cheap'],
+['Lake Como, Varenna','Italy',46.01,9.28,5,'lake,mountain','Hiking,Water sports,Doing nothing,Food and wine',140,'Milan','Ferries take dogs, villages walkable'],
+['Langhe and Alba','Italy',44.70,8.03,5.5,'country','Food and wine,Cycling,Doing nothing',95,'Turin','Wine hills and agriturismi'],
+['Genoa','Italy',44.41,8.93,5.5,'sea,city','Beach,Museums,Food and wine',85,'Genoa','Gritty port with a huge old town'],
+['Verona and Lake Garda','Italy',45.44,10.99,5.5,'lake,city','Water sports,Cycling,Museums',110,'Verona','Warm lake, reliable wind for sailing'],
+['Levanto and Cinque Terre','Italy',44.17,9.61,6.5,'sea','Beach,Hiking,Water sports',130,'Pisa','Trails allow dogs, trains get crowded'],
+['Venice','Italy',45.44,12.32,6.5,'city,sea','Museums,Food and wine,Doing nothing',150,'Venice','Beautiful and very busy'],
+['Bologna','Italy',44.49,11.34,6.5,'city','Food and wine,Museums,Party',95,'Bologna','Arguably the best eating in Italy'],
+['Florence and Tuscany','Italy',43.77,11.26,7,'city,country','Museums,Food and wine,Cycling',130,'Florence','Hill towns within easy reach'],
+['Bolzano and the Dolomites','Italy',46.50,11.35,8,'mountain','Hiking,Spa,Cycling',120,'Verona','Serious hiking, cool in a heatwave'],
+['Rome','Italy',41.90,12.50,9,'city','Museums,Food and wine,Party',120,'Rome','Punishing in June, better in September'],
+['Freiburg and the Black Forest','Germany',47.99,7.85,4,'country,city','Hiking,Cycling,Spa,Food and wine',95,'Basel','The sunny corner of Germany'],
+['Munich','Germany',48.14,11.58,6.5,'city,lake','Museums,Party,Cycling,Spa',120,'Munich','Lakes and mountains an hour out'],
+['Brussels','Belgium',50.85,4.35,5.5,'city','Museums,Party,Food and wine',110,'Brussels','Easy hop to Bruges and Ghent'],
+['Luxembourg City','Luxembourg',49.61,6.13,5.5,'city,country','Hiking,Museums,Cycling',110,'Luxembourg','Small, green, free public transport'],
+['Innsbruck','Austria',47.27,11.39,7,'mountain,city','Hiking,Spa,Cycling',105,'Innsbruck','Alps straight out of the city'],
+['Amsterdam','Netherlands',52.37,4.90,8.5,'city','Museums,Party,Cycling',160,'Amsterdam','Flat and cyclable, expensive beds','Nightjet Zurich to Amsterdam, direct'],
+['Barcelona and the Costa Brava','Spain',41.39,2.17,9,'sea,city','Beach,Party,Museums,Water sports',115,'Barcelona','Coves an hour north of the city'],
+['Salzburg and the Salzkammergut','Austria',47.80,13.05,9,'lake,mountain,city','Hiking,Water sports,Spa,Museums',110,'Salzburg','Lakes warm enough to swim in'],
+['San Sebastián','Spain',43.32,-1.98,10,'sea,city','Beach,Food and wine,Water sports,Party',140,'Bilbao','Extraordinary food, surf beaches'],
+['Ljubljana and Lake Bohinj','Slovenia',46.05,14.51,10.5,'lake,mountain,city','Hiking,Water sports,Spa,Cycling',85,'Ljubljana','Direct from London, no direct from Berlin'],
+['Prague','Czechia',50.08,14.44,11,'city','Party,Museums,Food and wine,Spa',85,'Prague','Cheap. Czech night trains bar dogs from sleepers'],
+['Vienna','Austria',48.21,16.37,11,'city','Museums,Party,Food and wine,Spa',110,'Vienna','Direct Nightjet from Zurich','Nightjet Zurich to Vienna, direct'],
+['Zagreb','Croatia',45.81,15.98,12,'city','Food and wine,Museums,Party',80,'Zagreb','Nightjet destination, gateway to the coast','Nightjet via Vienna or Graz'],
+['Graz and Styria','Austria',47.07,15.44,12,'city,country','Food and wine,Hiking,Cycling,Spa',90,'Graz','Direct Nightjet from Zurich, wine country and hills','Nightjet Zurich to Graz, direct'],
+['Hamburg','Germany',53.55,9.99,13,'city,sea','Museums,Party,Food and wine',120,'Hamburg','Direct Nightjet from Zurich, water everywhere','Nightjet Zurich to Hamburg, direct'],
+['Rovinj and Istria','Croatia',45.08,13.64,15,'sea,country','Beach,Food and wine,Cycling,Water sports,Doing nothing',95,'Pula','Sleeper to Zagreb then about 3 h by car','Nightjet to Zagreb, then 3 h by road'],
+['Split and the Dalmatian coast','Croatia',43.51,16.44,20,'sea,city','Beach,Party,Water sports,Doing nothing',105,'Split','Sleeper via Vienna, long haul but doable','Nightjet via Vienna, one change'],
+['Utrecht and the Dutch coast','Netherlands',52.09,5.12,13,'city,country','Cycling,Museums,Beach',120,'Amsterdam','Sleeper to Amsterdam then half an hour on','Nightjet Zurich to Amsterdam, then 30 min'],
+['Hanover and the Harz','Germany',52.37,9.73,12,'city,country','Hiking,Cycling,Museums',95,'Hanover','Direct Nightjet from Zurich, hills to the south','Nightjet Zurich to Hanover, direct']];
+
+const SEED=RAW.map((r,i)=>({id:'s'+i,name:r[0],country:r[1],lat:r[2],lon:r[3],rail:r[4],
+  land:r[5].split(','),acts:r[6].split(','),price:r[7],airport:r[8],note:r[9],night:r[10]||'',
+  short:String(r[0]).split(' and ')[0].split(',')[0]}));
+
+let state={prefs:{},picks:{},custom:[],extra:[],chosen:'',acc:[],tasks:[],it:[],travel:[]};
+let me='',my={origin:'',land:[],acts:[],price:120,hours:8},mode='me',storeMode=null;
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const allActs=()=>ACTS.concat(state.custom||[]);
+const allOpts=()=>SEED.concat(state.extra||[]);
+const myPicks=()=>(me&&state.picks[me])?state.picks[me]:[];
+const pickedBy=id=>Object.keys(state.picks).filter(n=>(state.picks[n]||[]).includes(id));
+
+function encode(o){try{return btoa(unescape(encodeURIComponent(JSON.stringify(o))));}catch(e){return '';}}
+function decode(s){try{return JSON.parse(decodeURIComponent(escape(atob(String(s).trim()))));}catch(e){return null;}}
+function merge(a,b){
+  const o=Object.assign({},a,b);
+  o.prefs=Object.assign({},a.prefs||{},b.prefs||{});
+  o.picks=Object.assign({},a.picks||{},b.picks||{});
+  o.custom=[...new Set([].concat(a.custom||[],b.custom||[]))];
+  const byId=k=>{const m={};[].concat(a[k]||[],b[k]||[]).forEach(v=>{if(v&&v.id)m[v.id]=v;});return Object.values(m);};
+  o.extra=byId('extra');o.acc=byId('acc');o.tasks=byId('tasks');o.it=byId('it');o.travel=byId('travel');
+  o.chosen=b.chosen||a.chosen||'';
+  return o;
+}
+
+async function probe(){
+  try{
+    if(window.storage&&typeof window.storage.set==='function'){
+      for(const m of ['shared','personal','default']){
+        try{
+          const r=m==='shared'?await window.storage.set('probe','1',true)
+            :m==='personal'?await window.storage.set('probe','1',false):await window.storage.set('probe','1');
+          if(r!==null&&r!==undefined){storeMode=m;return;}
+        }catch(e){}
+      }
+    }
+  }catch(e){}
+  storeMode=null;
+}
+async function readStore(){
+  if(!storeMode)return null;
+  try{
+    const r=storeMode==='shared'?await window.storage.get('trip-board',true)
+      :storeMode==='personal'?await window.storage.get('trip-board',false):await window.storage.get('trip-board');
+    return r&&r.value?JSON.parse(r.value):null;
+  }catch(e){return null;}
+}
+async function writeStore(v){
+  if(!storeMode)return false;
+  try{
+    const r=storeMode==='shared'?await window.storage.set('trip-board',v,true)
+      :storeMode==='personal'?await window.storage.set('trip-board',v,false):await window.storage.set('trip-board',v);
+    return r!==null&&r!==undefined;
+  }catch(e){return false;}
+}
+async function persist(){
+  if(location.protocol==='http:'||location.protocol==='https:'){
+    try{history.replaceState(null,'','#b='+encode(state));}catch(e){}
+  }
+  if(storeMode){
+    const remote=await readStore();
+    if(remote)state=merge(remote,state);
+    const done=await writeStore(JSON.stringify(state));
+    if(done){lastSeen=JSON.stringify(state);setStatus(storeMode==='shared'?'Live · synced '+new Date().toLocaleTimeString():'Saved on this device '+new Date().toLocaleTimeString());return true;}
+  }
+  setStatus('Not saving yet · publish this artifact to switch storage on');
+  return false;
+}
+let lastSeen='',polling=false;
+async function poll(){
+  if(polling||!storeMode)return;
+  polling=true;
+  try{
+    const remote=await readStore();
+    if(remote){
+      const merged=merge(remote,state);
+      const s=JSON.stringify(merged);
+      if(s!==JSON.stringify(state)){
+        state=merged;
+        if(me&&state.prefs[me])my=Object.assign(my,state.prefs[me]);
+        buildChips();sync();render();
+      }
+      if(s!==lastSeen){lastSeen=s;setStatus(storeMode==='shared'?'Live · synced '+new Date().toLocaleTimeString():'Saved on this device');}
+    }
+  }catch(e){}
+  polling=false;
+}
+function setStatus(t){const e=$('status');if(e)e.textContent=t;}
+
+function chipset(el,opts,get,set,multi){
+  el.innerHTML=opts.map(o=>`<button class="chip" data-v="${esc(o[0])}">${esc(o[1])}</button>`).join('');
+  const paint=()=>{const c=get();[...el.children].forEach(b=>b.setAttribute('aria-pressed',multi?c.indexOf(b.dataset.v)>=0:String(c)===b.dataset.v));};
+  el.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;const v=b.dataset.v;
+    if(multi){const c=get().slice();const i=c.indexOf(v);i>=0?c.splice(i,1):c.push(v);set(c);}else set(v);
+    paint();render();};
+  el._paint=paint;paint();
+}
+function countryMenu(show){
+  const box=$('country-menu'),inp=$('m-country');
+  if(!box||!inp)return;
+  const q=inp.value.trim().toLowerCase();
+  const all=Object.keys(COUNTRIES).sort();
+  const hits=q?all.filter(n=>n.toLowerCase().indexOf(q)>=0):all;
+  if(!show||!hits.length){box.hidden=true;box.innerHTML='';return;}
+  box.innerHTML=hits.map(n=>'<button type="button" data-c="'+esc(n)+'" style="display:block;width:100%;text-align:left;border:none;border-radius:0;background:none;padding:11px 13px;min-height:auto;border-bottom:1px solid var(--line)">'+esc(n)+'</button>').join('');
+  box.hidden=false;
+  box.querySelectorAll('[data-c]').forEach(b=>b.onclick=function(){
+    inp.value=b.getAttribute('data-c');
+    box.hidden=true;box.innerHTML='';
+    const nm=$('m-name');if(nm&&!nm.value)nm.focus();
+  });
+}
+function fillCountries(){
+  const inp=$('m-country');if(!inp)return;
+  inp.addEventListener('input',function(){countryMenu(true);});
+  inp.addEventListener('focus',function(){countryMenu(true);});
+  inp.addEventListener('keydown',function(e){if(e.key==='Escape')countryMenu(false);});
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('#country-menu')&&e.target!==inp)countryMenu(false);
+  });
+}
+function buildChips(){
+  chipset($('q-origin'),ORIGINS,()=>my.origin,v=>{my.origin=v;dogNote();},false);
+  chipset($('q-land'),LANDS,()=>my.land,v=>my.land=v,true);
+  chipset($('q-act'),allActs().map(a=>[a,a]),()=>my.acts,v=>my.acts=v,true);
+}
+function dogNote(){
+  const gva=my.origin==='Geneva';
+  $('dognote').textContent=gva?'Every option here is reachable from Geneva by rail or sleeper.':'';
+  const w=$('q-rail-wrap');if(w)w.hidden=!gva;
+}
+function sync(){
+  ['q-origin','q-land','q-act'].forEach(i=>{const e=$(i);if(e&&e._paint)e._paint();});
+  $('q-price').value=my.price;$('price-out').textContent='up to €'+my.price;
+  $('q-hours').value=my.hours;$('hrs-out').textContent=my.hours+' h';
+  dogNote();
+}
+
+function failsFor(d,p){
+  if(d.custom)return [];
+  const f=[];
+  const sleeper=!!d.night;
+  if(p.origin==='Geneva'&&!sleeper&&typeof d.rail==='number'&&d.rail>p.hours)f.push(d.rail+' h by rail from Geneva');
+  if(typeof d.price==='number'&&d.price>p.price)f.push('beds near €'+d.price+', over the ceiling');
+  const wantsL=(p.land||[]).length,wantsA=(p.acts||[]).length;
+  if(wantsL||wantsA){
+    const hitL=(p.land||[]).some(l=>(d.land||[]).indexOf(l)>=0);
+    const hitA=(p.acts||[]).some(a=>(d.acts||[]).indexOf(a)>=0);
+    if(!hitL&&!hitA)f.push('none of what you picked');
+  }
+  return f;
+}
+function taste(d,p){
+  let n=0;
+  (p.land||[]).forEach(l=>{if((d.land||[]).indexOf(l)>=0)n++;});
+  (p.acts||[]).forEach(a=>{if((d.acts||[]).indexOf(a)>=0)n++;});
+  return n;
+}
+function gcKm(a1,o1,a2,o2){
+  const R=6371,r=Math.PI/180;
+  const dLa=(a2-a1)*r,dLo=(o2-o1)*r;
+  const h=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(a1*r)*Math.cos(a2*r)*Math.sin(dLo/2)*Math.sin(dLo/2);
+  return 2*R*Math.asin(Math.min(1,Math.sqrt(h)));
+}
+function flightH(d,from){
+  if(typeof d.lat!=='number'||typeof d.lon!=='number')return null;
+  const o=HOME[from];if(!o)return null;
+  const km=gcKm(o[0],o[1],d.lat,d.lon);
+  if(km<200)return null;
+  return 0.7+km/780;
+}
+function fmtH(h){
+  if(h==null)return '';
+  const t=Math.round(h*60/5)*5;
+  return Math.floor(t/60)+'h'+String(t%60).padStart(2,'0');
+}
+function flightTag(d){
+  const l=flightH(d,'London'),b=flightH(d,'Berlin');
+  if(!l&&!b)return '';
+  return 'fly about '+(l?fmtH(l)+' from London':'')+(l&&b?', ':'')+(b?fmtH(b)+' from Berlin':'');
+}
+function fitGroup(d){
+  const n=Object.keys(state.prefs);
+  if(!n.length)return null;
+  const g=n.filter(x=>failsFor(d,state.prefs[x]).length===0);
+  return {ok:g.length,total:n.length,names:g};
+}
+function classify(){
+  const opts=allOpts();
+  const custom=opts.filter(d=>d.custom);
+  const rest=opts.filter(d=>!d.custom);
+  if(mode==='all')return {full:rest,near:[],custom:custom};
+  const full=[],near=[];
+  if(mode==='all-people'){
+    rest.forEach(d=>{const g=fitGroup(d);
+      if(!g||g.ok===g.total)full.push(d);else if(g.ok>0)near.push(d);});
+    return {full,near,custom:custom};
+  }
+  rest.forEach(d=>{const f=failsFor(d,my);
+    if(f.length===0)full.push(d);else if(f.length===1)near.push(d);});
+  return {full,near,custom:custom};
+}
+
+const LAND=["M297.3,175L304.7,181.3L327.2,185.7L319.3,201.9L317.3,218.5L313,222.5L305.9,220.3L306.4,226.2L295,239.1L294.7,249.3L302.2,245.8L307.5,255.7L306.9,262L311.5,270.4L306.1,277.2L310.1,294.1L318.6,296.9L316.8,306.3L302.6,318.5L271.8,312.7L249.1,319.6L247.3,332.4L229.2,335.2L211.6,325.6L205.9,330.1L177.2,320.5L170.9,312.1L179,299.2L182,255.2L165.9,231.3L154.4,219.7L130.5,210.7L128.9,193.6L149.2,188.4L175.4,194.5L170.4,167.5L185.2,177.8L221.6,159L226.3,138.8L239.9,133.8L242.2,142.5L249.4,142.9L256.7,152.8L267.6,164.3L275.6,162.4L289.3,173.4L292.8,175.5ZM337.3,329.1L347.3,321L350,339.2L344.8,355.4L337.7,351.1L334.1,337Z","M348.7,569.4L342.1,536.6L332.5,529.2L332.3,524.7L319.6,513.6L318.2,499.4L327.8,488.9L331.5,473.1L329,454.7L332.2,444.8L349.2,436.8L360.2,439.2L359.7,449.1L372.9,441.9L374.1,445.6L366.2,455.2L366.1,464.1L371.5,468.9L369.5,485.5L359.2,495L362.2,505.3L370.2,505.6L374.2,514.5L380.1,517.4L379.2,531.7L371.6,537L366.8,542.9L356.1,550L357.7,557.5L356.4,565.2Z","M65,621.3L65.3,617.9L65.3,616.7L65.2,595.7L90.4,582.5L106,579.8L118.8,574.9L124.8,565.9L143,558.7L143.7,545.2L152.7,543.6L159.8,536.8L180.2,533.7L183.1,526.5L179,522.5L173.6,502.8L172.6,491.3L166.8,479.1L181.8,468.6L198.7,465.3L208.5,457.3L223.6,451.4L250.1,447.9L275.9,446.3L283.7,449.2L298.5,441.5L315.2,441.4L321.5,445.9L332.2,444.8L329,454.7L331.5,473.1L327.8,488.9L318.2,499.4L319.6,513.6L332.3,524.7L332.5,529.2L342.1,536.6L348.7,569.4L353.8,585.3L354.7,593.6L351.9,608.1L353.1,616.2L351.1,625.8L352.4,636.8L346.2,644.1L355.4,656.7L356.1,664.1L361.6,673.7L368.9,670.6L381.3,678.6L388.1,689.2L334.6,721.5L289.4,754.3L267.3,761.6L250,763.3L249.8,752.7L242.6,750L232.9,745.3L229.1,737.5L176.5,700.8L123.8,663.5Z","M372.9,-76.9L379.8,-94.5L392.8,-115.8L398,-153.3L388,-169.9L387,-214.8L397.2,-247.7L412.6,-247.1L418.1,-261.3L412.4,-273.8L436.6,-326.8L452.3,-370.6L462.6,-399.9L477.6,-399.8L481.7,-423.3L511.1,-416.4L513.5,-444.8L523.1,-446.6L544,-425.4L568.3,-396.7L568.8,-334.6L574,-319.6L547.1,-308.8L532,-282.6L534.4,-260.2L509.6,-231.6L479.4,-201.7L468.1,-154.8L479.2,-132.1L494.1,-114.6L479.8,-79.9L463.5,-72.8L457.6,-23.5L448.7,3.1L429.8,0.4L420.9,22.4L402.8,23.7L397.8,-2.6L384.8,-35.1Z","M640.8,1.2L657.2,8.3L659.4,15.2L667.6,11.9L682.9,18.5L684.5,31.4L681.1,38.7L690.9,56.3L697.2,61.2L696.3,66L706.8,70.6L711.3,77.6L705.3,83.3L692.7,82.4L689.6,84.8L693.3,93.4L697.2,109.8L683.7,111.3L678.9,116.9L677.9,129.5L671.7,127.1L657.6,128.3L653.5,122.5L647.7,126.8L641.8,123.2L629.5,122.7L612.1,116.7L596.3,114.6L584.2,115.2L575.6,122.1L568.2,123.1L567.8,111.8L563,100L572.4,94.7L572.5,84.4L568.2,74.5L567.5,62.8L582.6,63L599.5,52.9L603.1,37.8L616,29L614.5,16.7L624,12Z","M697.2,109.8L703,110.8L706.9,105.1L711.7,106.3L727.9,103.9L737.9,118.2L733.9,123.4L735.2,131.1L747.7,132.3L753.3,143.1L752.9,147.9L772.7,156.6L784.7,152.7L794.4,164.1L803.5,163.8L826.6,171.7L826.7,178.7L820.4,191.2L823.9,204.3L821.4,212L806.3,213.7L798.2,220.2L797.7,230.4L785.2,232.3L774.8,239.7L760.2,240.9L746.8,249.3L747.5,261.4L745.2,260.7L743.2,256.3L738.2,255.4L727,250.6L722.9,256.1L720.8,253.7L696.5,248L695.4,239.5L681,242.3L675.2,254.7L663.1,271.3L656,267.5L648.6,271.1L641.7,266.9L645.6,264.5L648.4,256.8L652.6,249.7L651.5,245.6L654.8,243.8L656.3,246.9L665.5,247.6L669.7,245.9L666.7,243.6L667.8,240.2L662.4,234.4L660.1,224.8L654.4,221L655.6,213.2L648.5,206.9L642.1,206L630.6,198.7L620.2,201L616.5,204.5L609.8,204.5L606,210L594.4,212.2L589.1,215.8L581.8,210.1L571.8,210L562.2,207.4L555.4,212.4L554.3,206.2L545.6,199.8L548.7,190.2L553,184L556.4,185.5L552.4,174.7L566.6,154.5L574.4,151.7L576,144.8L568.2,123.1L575.6,122.1L584.2,115.2L596.3,114.6L612.1,116.7L629.5,122.7L641.8,123.2L647.7,126.8L653.5,122.5L657.6,128.3L671.7,127.1L677.9,129.5L678.9,116.9L683.7,111.3Z","M567.5,62.8L568.2,74.5L572.5,84.4L572.4,94.7L563,100L567.8,111.8L568.2,123.1L576,144.8L574.4,151.7L566.6,154.5L552.4,174.7L556.4,185.5L553,184L538.2,174.8L526.9,178.3L519.6,175.8L510.3,180.9L502.4,172.4L496,175.7L495.1,174.2L488,162.3L476.3,160.8L474.9,153.2L464.1,150.5L461.8,156.8L453.3,151.8L454.3,145L442.7,142.8L435.2,134.8L428.8,118.8L430.1,110.1L426.2,96.4L420.5,87.2L424.8,80.3L421.2,66.9L431.9,59.1L456.3,46.8L475.9,37.6L491.5,42.2L492.7,48.8L507.8,49.1L527,52.1L555.7,51.7L563.7,54.6Z","M465.9,206.8L464.7,216.3L455.9,216.4L458.9,221.4L453.7,236.2L450.8,240L437.1,240.6L429.2,245.7L416.3,244L394,238.1L390.5,230.2L375.1,234.1L373.3,238.5L363.8,235.2L355.8,234.6L348.7,230.4L351.1,224.8L350.5,220.7L355.2,219.4L363.1,225.9L365.3,219.8L379.1,220.7L390.3,216.6L397.8,217.3L402.7,222L404.1,218.1L401.9,202.9L407.5,199.9L413,189L424.6,196.7L433.4,186.9L438.9,185.2L451,192.4L458.4,191.2L465.6,195.7L464.3,198.6Z","M545.6,199.8L554.3,206.2L555.4,212.4L545.8,217.3L538.5,232.9L529,248.4L516.5,252.6L506.8,251.6L494.8,257.5L488.9,260.9L476.1,256.6L464.4,246.9L459.4,244.1L456.4,236.4L453.7,236.2L458.9,221.4L455.9,216.4L464.7,216.3L465.9,206.8L473.8,212.8L479.6,215.3L492.7,212.4L493.9,207.8L500.2,207.1L507.8,203.4L509.5,204.9L516.8,202L520.5,196.5L525.6,195L542.3,202.2Z","M616.5,204.5L620.2,201L630.6,198.7L642.1,206L648.5,206.9L655.6,213.2L654.4,221L660.1,224.8L662.4,234.4L667.8,240.2L666.7,243.6L669.7,245.9L665.5,247.6L656.3,246.9L654.8,243.8L651.5,245.6L652.6,249.7L648.4,256.8L645.6,264.5L641.7,266.9L638.9,256.7L640.5,247.1L640,237.1L631,223.5L626,213.7L621.2,206.8Z","M641.7,266.9L648.6,271.1L656,267.5L663.1,271.3L663.4,277L655.8,281.8L651.1,279.7L646.7,306L637.6,303.7L626.2,295.8L607.8,300.9L600.1,306.4L577.1,305.3L565.1,301.9L559.1,303.5L554.6,294.6L551.7,290.7L555.3,287.1L551.5,284.3L546.6,289.3L537.5,282.9L536.2,273.8L526.7,268.5L525,261.4L516.5,252.6L529,248.4L538.5,232.9L545.8,217.3L555.4,212.4L562.2,207.4L571.8,210L581.8,210.1L589.1,215.8L594.4,212.2L606,210L609.8,204.5L616.5,204.5L621.2,206.8L626,213.7L631,223.5L640,237.1L640.5,247.1L638.9,256.7Z","M614.5,16.7L616,29L603.1,37.8L599.5,52.9L582.6,63L567.5,62.8L563.7,54.6L555.7,51.7L554.4,44.9L556.1,37.5L549.2,33.2L532.9,28.4L529.5,5.1L547.4,-3.5L573.6,-1.7L589,-4.5L591.2,1.4L599.5,3.2Z","M626.9,-36L634.4,-29.3L635.8,-15.4L640.8,1.2L624,12L614.5,16.7L599.5,3.2L591.2,1.4L589,-4.5L573.6,-1.7L547.4,-3.5L529.5,5.1L530.1,-16.1L537.7,-34.2L552.5,-44.2L564.9,-22.5L577.4,-23.1L580.4,-45.3L593.8,-50.5L600.6,-46.9L614,-36.1Z","M421.2,66.9L424.8,80.3L420.5,87.2L426.2,96.4L430.1,110.1L428.8,118.8L435.2,134.8L428.3,137.4L424.2,134.6L420.2,139.3L409,144.1L403.2,150.2L391.8,155.6L394.6,162.8L396.3,173L404.2,178.8L413,189L407.5,199.9L401.9,202.9L404.1,218.1L402.7,222L397.8,217.3L390.3,216.6L379.1,220.7L365.3,219.8L363.1,225.9L355.2,219.4L350.5,220.7L333.8,213.6L330.6,218.7L317.3,218.5L319.3,201.9L327.2,185.7L304.7,181.3L297.3,175L298.2,164.4L295,159L296.8,142.3L294.2,116.1L303.6,116.1L307.5,106.6L311.4,83L308.5,74.2L311.6,68.6L324.6,67.2L327.5,73L338.1,59.9L334.6,49.9L333.8,34.6L345.7,38.2L355.7,34L355.9,44.5L371.7,50.8L371.5,60.3L387.4,55.3L396.2,47.9L413.8,58.5Z","M554.6,294.6L559.1,303.5L565.1,301.9L577.1,305.3L600.1,306.4L607.8,300.9L626.2,295.8L637.6,303.7L646.7,306L638.6,314.9L632.9,330.2L638,342.2L624.5,339.4L608.6,346L608.4,356.4L594.3,358.4L583.2,351.1L570.8,356.8L559.2,356.2L558,342.4L550.2,335.7L552.8,332.7L551.1,330.1L553.8,323.4L559.7,316.7L552.1,307.4L550.7,299.5Z","M559.2,356.2L570.8,356.8L583.2,351.1L594.3,358.4L608.4,356.4L608.6,346L616.2,351.6L611.4,364.6L607.6,366.9L598.1,366.3L590,364.4L571.1,369.7L581.9,381.3L574,384.6L565.3,384.6L557,374L554.1,378.6L557.6,390.7L565.4,400.2L559.5,404.6L568.2,413.9L575.9,419.6L576.2,430.8L561.7,425.6L566.3,435.7L556.4,437.7L562.3,454.9L552,455.2L539.2,446.7L533.3,431L530.5,417.8L524.5,408.6L516.4,397.2L515.4,391.4L522.7,381.5L523.6,374.9L528.7,371.9L529,366.5L539.2,364.7L545.2,360.1L553.6,360.6L556.2,356.9Z","M900,440.3L892.5,443.7L887.1,438.7L868.8,436.1L862.1,439.2L844.4,442.2L836,441.9L818,449.2L805.1,449.3L796.9,445.6L779.7,451.1L774.5,447.3L773.7,458.1L769.5,462.3L765.3,466.6L759.6,457.8L765.5,450.5L756,452.2L742.9,447.7L732.1,458.9L708.5,461L695.8,450.6L678.9,450L675.3,458L664.5,460.3L649.5,450L632.4,450.4L623.2,430.9L611.7,419.9L619.3,404.3L609.4,394.7L626.8,375.2L650.8,374.4L657.4,358.7L687.2,361.4L705.9,347.9L724.2,342L750,341.6L777.2,356.3L799.7,364.3L817.8,361.1L831.3,363L849.7,352.1L866.4,351.1L881.4,361.3L884.1,368.6L882.6,378.6L894.2,383.7L900.3,389.6L889.6,395.4L894.5,418.4L891.4,424.6ZM608.6,346L624.5,339.4L638,342.2L639.8,350.3L653.5,357L650.6,362.1L632,363.3L625.4,369.6L612.4,380.7L607.5,371.1L607.6,366.9L611.4,364.6L616.2,351.6Z","M529,366.5L528.7,371.9L523.6,374.9L522.7,381.5L515.4,391.4L512.7,390L512.4,385.5L503.8,378.7L502.4,368.9L503.7,354.8L505.9,348.3L503.2,345L502.2,338.3L509,327.8L510,331.8L514.2,330L517.5,335.7L521.2,337.8L522.3,345.4L520.3,352.5L522.5,361.5Z","M459.4,244.1L464.4,246.9L476.1,256.6L488.9,260.9L494.8,257.5L498.6,266.2L503.6,272.6L497.5,280.9L490.5,276L479.7,276.3L466.2,272.6L458.9,273.1L455.5,277.7L450,272.6L446.6,281.8L454.3,292L457.7,298.8L464.9,306.9L470.8,311.6L476.7,320.6L490.6,328.7L488.8,332.3L474.1,324.4L465.1,316.7L450.8,310.3L437.7,294.4L440.9,292.7L433.7,283.5L433.4,276.1L423.4,272.6L418.6,282.1L414,274.7L414.3,267L414.9,266.7L425.8,267.4L428.7,263.7L433.9,267.3L440.1,267.7L440,261.5L445.5,259.2L447,250.1Z","M350.5,220.7L351.1,224.8L348.7,230.4L355.8,234.6L363.8,235.2L362.5,244.6L355.7,248.4L344.1,245.5L340.7,254.7L333.3,255.4L330.6,251.8L321.8,259.4L314.3,260.5L307.5,255.7L302.2,245.8L294.7,249.3L295,239.1L306.4,226.2L305.9,220.3L313,222.5L317.3,218.5L330.6,218.7L333.8,213.6Z","M295,159L298.2,164.4L297.3,175L292.8,175.5L289.3,173.4L291,159.9Z","M296.8,142.3L295,159L291,159.9L289.3,173.4L275.6,162.4L267.6,164.3L256.7,152.8L249.4,142.9L242.2,142.5L239.9,133.8L252.4,128.9L263.9,130.9L278.3,125.7L288.2,136.6Z","M308.5,74.2L311.4,83L307.5,106.6L303.6,116.1L294.2,116.1L296.8,142.3L288.2,136.6L278.3,125.7L263.9,130.9L252.4,128.9L260.5,122L274.2,84.4L295.6,73.4Z","M59.5,344.9L65.2,339.6L71.6,336.5L75.5,346.8L84.7,346.8L87.4,344.1L96.5,344.9L100.9,355.3L93.6,361L93.5,377L90.9,380L90.3,389.7L83.6,391.3L89.8,403.5L85.5,416.6L90.9,422.5L88.7,427.9L82.9,435.3L84.2,441.8L77.9,446.8L69.7,444.1L61.7,446.2L64,430.9L62.6,418.7L55.6,416.9L51.8,409.3L53.1,396.2L59.3,388.8L60.4,380.5L63.7,368.2L63.4,359.4L60.2,352Z","M84.2,441.8L82.9,435.3L88.7,427.9L90.9,422.5L85.5,416.6L89.8,403.5L83.6,391.3L90.3,389.7L90.9,380L93.5,377L93.6,361L100.9,355.3L96.5,344.9L87.4,344.1L84.7,346.8L75.5,346.8L71.6,336.5L65.2,339.6L59.5,344.9L60.3,329.9L53.9,320.6L76,305.1L95.1,309L116.1,308.9L132.8,312.6L145.7,311.5L170.9,312.1L177.2,320.5L205.9,330.1L211.6,325.6L229.2,335.2L247.3,332.4L248.1,344.7L233.4,358.6L213.3,363L211.9,369.9L202.3,381.3L196.3,397.8L202.4,409.3L193.4,418.2L190,431.1L178.2,435L167.1,450L147.3,450.3L132.4,450L122.6,456.8L116.7,464.1L109,462.5L103.2,456L98.8,444.8Z","M103.9,64L106.4,82.7L94.6,105.8L66.9,120.8L44.8,117L57.5,90.3L49.3,63.6L70.6,42.7L82.4,30L85.6,44.5L82.4,58.9L92,58.5Z","M363.8,235.2L373.3,238.5L375.1,234.1L390.5,230.2L394,238.1L416.3,244L414.6,255.1L418.4,264.6L405.9,261.4L393.2,269.3L394.1,280.3L392.2,286.6L397.3,297.7L412,308.6L419.8,326.3L437.2,343.3L449.4,343.2L453.2,347.8L448.8,352L462.8,359.5L474.3,365.8L487.7,376.5L489.3,380.4L486.4,387.6L477.7,378.1L464.1,374.7L457.6,388L468.9,395.5L467,406L460.5,407.2L452.2,424.3L445.6,425.8L445.7,419.7L448.9,409L452.3,404.7L446.2,393.1L441.4,382.8L435,380.3L430.3,371.4L420.3,367.7L413.5,359.3L401.9,358L389.7,348.6L375.5,334.9L364.8,322.7L360,301.4L352.2,298.9L339.5,291.7L332.3,294.7L323.3,304.7L316.8,306.3L318.6,296.9L310.1,294.1L306.1,277.2L311.5,270.4L306.9,262L307.5,255.7L314.3,260.5L321.8,259.4L330.6,251.8L333.3,255.4L340.7,254.7L344.1,245.5L355.7,248.4L362.5,244.6ZM431.2,421.1L443.1,419.4L437.5,435L439.8,441.1L436.5,451.1L424.5,443.8L416.6,441.6L394.9,431.7L397,421.5L415.3,423.3ZM336.7,365.3L344.5,358.9L353.9,373.6L351.7,400.5L344.6,399.2L338.2,405.9L332.3,400.6L331.7,376.1L328.1,364.3Z","M355.7,34L345.7,38.2L333.8,34.6L327.5,19.4L327,-9.2L329.6,-16.9L334.1,-25.4L347.8,-27.2L353.4,-35.2L365.9,-43.5L365.4,-28.5L360.8,-19.2L362.6,-11.2L371.1,-6.9L367.3,3.7L362.6,0.7L351.4,20.7Z","M103.9,64L92,58.5L82.4,58.9L85.6,44.5L82.4,30L95.5,28.9L112.2,45.6ZM152.3,76.2L152.4,76.2L154.6,60.9L144.2,44.4L144,44L125,39.3L121.3,31.9L127,19.7L121.8,12L113.4,25.1L112.5,-1.7L104.6,-16.1L110.3,-46L122.4,-70.1L134.9,-67.8L153.7,-70.2L137,-38.3L152.9,-42.3L170,-42.1L166,-18.6L151.9,6.7L168.1,8.5L169.3,11.5L183.3,43.8L193.9,48.1L203.6,78.3L208,88.5L226.9,93.5L225,109.9L217.1,117.3L223.3,130.3L209.2,143.3L188.4,143L161.8,149.8L154.5,145L144.2,156.5L129.7,153.7L118.8,163L110.4,158.2L133.3,132.3L147.3,126.9L147.2,126.8L122.8,122.7L118.4,112.6L134.7,104.7L126.2,90.9L129.1,73.8Z","M416.3,244L429.2,245.7L437.1,240.6L450.8,240L453.7,236.2L456.4,236.4L459.4,244.1L447,250.1L445.5,259.2L440,261.5L440.1,267.7L433.9,267.3L428.7,263.7L425.8,267.4L414.9,266.7L418.4,264.6L414.6,255.1Z","M553,184L548.7,190.2L545.6,199.8L542.3,202.2L525.6,195L520.5,196.5L516.8,202L509.5,204.9L507.8,203.4L500.2,207.1L493.9,207.8L492.7,212.4L479.6,215.3L473.8,212.8L465.9,206.8L464.3,198.6L465.6,195.7L467.8,190.4L474.7,190.8L480.1,188.4L480.4,186.2L483.5,185.1L484.5,179.6L488.1,178.6L490.5,174.3L495.1,174.2L496,175.7L502.4,172.4L510.3,180.9L519.6,175.8L526.9,178.3L538.2,174.8Z","M435.2,134.8L442.7,142.8L454.3,145L453.3,151.8L461.8,156.8L464.1,150.5L474.9,153.2L476.3,160.8L488,162.3L495.1,174.2L490.5,174.3L488.1,178.6L484.5,179.6L483.5,185.1L480.4,186.2L480.1,188.4L474.7,190.8L467.8,190.4L465.6,195.7L458.4,191.2L451,192.4L438.9,185.2L433.4,186.9L424.6,196.7L413,189L404.2,178.8L396.3,173L394.6,162.8L391.8,155.6L403.2,150.2L409,144.1L420.2,139.3L424.2,134.6L428.3,137.4Z","M490.6,328.7L476.7,320.6L470.8,311.6L464.9,306.9L457.7,298.8L454.3,292L446.6,281.8L450,272.6L455.5,277.7L458.9,273.1L466.2,272.6L479.7,276.3L490.5,276L497.5,280.9L503.2,280.8L499.3,290.4L506.8,298.8L504.5,309L500.9,310L497.9,311.9L492.9,316.9Z","M550.2,335.7L558,342.4L559.2,356.2L556.2,356.9L553.6,360.6L545.2,360.1L539.2,364.7L529,366.5L522.5,361.5L520.3,352.5L522.3,345.4L524.2,345.6L525,341.3L534.2,338.1L537.7,337.2L543,336Z","M494.8,257.5L506.8,251.6L516.5,252.6L525,261.4L526.7,268.5L536.2,273.8L537.5,282.9L546.6,289.3L551.5,284.3L555.3,287.1L551.7,290.7L554.6,294.6L550.7,299.5L552.1,307.4L559.7,316.7L553.8,323.4L551.1,330.1L552.8,332.7L550.2,335.7L543,336L537.7,337.2L537.2,335.7L539,333.1L540.8,328L538.6,328.1L535.6,324.1L533,323.1L530.9,319.7L528,318.4L525.8,315.4L523,316.6L520.8,323.7L517.1,325.2L518.3,323.4L512.4,318.9L507.3,316.6L505,313.7L500.9,310L504.5,309L506.8,298.8L499.3,290.4L503.2,280.8L497.5,280.9L503.6,272.6L498.6,266.2Z","M514.2,330L510,331.8L509,327.8L502.2,338.3L503.2,345L500,343.3L495.6,336.5L488.8,332.3L490.6,328.7L492.9,316.9L497.9,311.9L500.9,310L505,313.7L507.3,316.6L512.4,318.9L518.3,323.4L517.1,325.2Z","M522.3,345.4L521.2,337.8L517.5,335.7L514.2,330L517.1,325.2L520.8,323.7L523,316.6L525.8,315.4L528,318.4L530.9,319.7L533,323.1L535.6,324.1L538.6,328.1L540.8,328L539,333.1L537.2,335.7L537.7,337.2L534.2,338.1L525,341.3L524.2,345.6Z"];
+const COUNTRIES={"Austria":[47.62,14.06],"Belgium":[50.65,4.59],"Croatia":[45.01,16.57],"Czechia":[49.78,15.34],"France":[46.6,2.4],"Germany":[51.08,10.27],"Italy":[42.67,12.27],"Luxembourg":[49.76,5.97],"Netherlands":[52.29,5.5],"Slovenia":[46.13,14.93],"Spain":[40.32,-3.62]};
+const MS=894.9548,MTX=200.6606,MTY=1066.5668;
+const MX=lon=>MTX+MS*lon*Math.PI/180;
+const MY=lat=>MTY-MS*Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));
+function drawMap(full,near,custom){
+  const W=620,H=430;
+  const tier=new Map();
+  full.forEach(o=>tier.set(o.id,'full'));
+  (near||[]).forEach(o=>{if(!tier.has(o.id))tier.set(o.id,'near');});
+  const opts=full.concat(near||[]).filter(o=>typeof o.lat==='number'&&typeof o.lon==='number');
+  const mine=(custom||[]).filter(o=>typeof o.lat==='number'&&typeof o.lon==='number');
+  let s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="Map of western and central Europe showing London, Berlin and Geneva alongside the matching destinations">';
+  s+='<defs><clipPath id="fr"><rect x="0" y="0" width="'+W+'" height="'+H+'" rx="10"/></clipPath></defs>';
+  s+='<g clip-path="url(#fr)">';
+  s+='<rect width="'+W+'" height="'+H+'" fill="#CFE0E3"/>';
+  LAND.forEach(d=>{s+='<path d="'+d+'" fill="#E7EBE1" stroke="#BFCBBE" stroke-width="0.6" stroke-linejoin="round"/>';});
+
+  const marks=[];
+  Object.keys(HOME).forEach(n=>{const c=HOME[n];marks.push({x:MX(c[1]),y:MY(c[0]),label:n,home:true,pri:0});});
+  opts.forEach(o=>{const picked=myPicks().indexOf(o.id)>=0,votes=pickedBy(o.id).length;
+    const isNear=tier.get(o.id)==='near';
+    marks.push({x:MX(o.lon),y:MY(o.lat),label:o.short||o.name,picked:picked,votes:votes,near:isNear,
+      pri:picked?1:votes?2:isNear?4:3});});
+  mine.forEach(o=>{
+    const cx=Math.max(12,Math.min(W-12,MX(o.lon))), cy=Math.max(12,Math.min(H-12,MY(o.lat)));
+    marks.push({x:cx,y:cy,label:o.short||o.name,added:true,picked:myPicks().indexOf(o.id)>=0,
+      votes:pickedBy(o.id).length,pri:1.5});});
+
+  // draw every dot first so labels never hide one
+  marks.slice().sort((a,b)=>b.pri-a.pri).forEach(m=>{
+    if(m.home){
+      s+='<circle cx="'+m.x+'" cy="'+m.y+'" r="6.5" fill="#12312A"/>';
+      s+='<circle cx="'+m.x+'" cy="'+m.y+'" r="2.6" fill="#FFF"/>';
+    }else{
+      const col=m.added?'#D6478E':m.picked?'#A9482A':m.votes?'#C4890F':m.near?'#8FA396':'#2E6B4F';
+      s+='<circle cx="'+m.x+'" cy="'+m.y+'" r="'+(m.added?5.6:m.picked?6:m.near?3.4:4.6)+'" fill="'+col+'" stroke="#FFF" stroke-width="'+(m.near?0.6:1.2)+'"/>';
+    }});
+
+  // place labels only where they genuinely fit, no connector lines
+  const taken=[];
+  marks.forEach(m=>{const r=m.home?7:(m.picked?6:4.6);
+    taken.push({x1:m.x-r,y1:m.y-r,x2:m.x+r,y2:m.y+r});});
+  const free=bx=>!taken.some(t=>!(bx.x2<t.x1||bx.x1>t.x2||bx.y2<t.y1||bx.y1>t.y2));
+
+  marks.sort((a,b)=>a.pri-b.pri||a.y-b.y).forEach(m=>{
+    const size=m.home?11.5:10.5;
+    const w=m.label.length*(size*0.54)+3, h=size+1;
+    const gap=m.home?10:7;
+    let put=null;
+    const tries=[];
+    [3,-7,11,-14,17].forEach(dy=>{
+      tries.push({x:m.x+gap,y:m.y+dy,anchor:'start'});
+      tries.push({x:m.x-gap,y:m.y+dy,anchor:'end'});
+    });
+    for(const t of tries){
+      const x1=t.anchor==='start'?t.x:t.x-w, x2=x1+w;
+      const box={x1:x1,y1:t.y-h+2,x2:x2,y2:t.y+3};
+      if(x1<3||x2>W-3||box.y1<3||box.y2>H-3)continue;
+      if(free(box)){put=t;taken.push(box);break;}
+    }
+    if(!put)return;
+    const weight=m.home?'600':'400';
+    const fill=m.home?'#12312A':m.near?'#7A8C81':'#22453A';
+    s+='<text x="'+put.x+'" y="'+put.y+'" text-anchor="'+put.anchor+'" font-size="'+size+'" font-weight="'+weight+'" fill="'+fill+'" font-family="Inter" stroke="#E7EBE1" stroke-width="2.6" paint-order="stroke">'+esc(m.label)+'</text>';
+  });
+  s+='</g></svg>';
+  $('map').innerHTML=s;
+}
+
+function render(){
+  const cls=classify();
+  drawMap(cls.full,cls.near,cls.custom);
+  $('shown').textContent='('+cls.full.length+' matching'+(cls.near.length?', '+cls.near.length+' close':'')+(cls.custom.length?', '+cls.custom.length+' added by us':'')+')';
+  const names=Object.keys(state.prefs);
+  $('who').innerHTML=names.length?'<div class="meta" style="margin-bottom:3px">Answered</div>'+names.map(n=>{
+    const p=state.prefs[n];
+    return `<div class="meta">${esc(n)} · ${esc(p.origin)} · up to €${p.price} · ${p.hours} h · ${(state.picks[n]||[]).length} picks</div>`;}).join('')
+    :'<p class="meta">Nobody has answered yet.</p>';
+  $('pickstate').textContent=me?myPicks().length+' of '+MAXPICKS+' picked':'Add your name to pick';
+
+  const card=(d,dim)=>{
+    const g=fitGroup(d),by=pickedBy(d.id);
+    const picked=myPicks().indexOf(d.id)>=0;
+    const mf=failsFor(d,my);
+    return `<div class="opt${g&&g.ok===g.total&&!dim?' fits':''}"${dim?' style="opacity:.72"':''}>
+      <h3>${esc(d.name)} <span class="meta">· ${esc(d.country)}</span></h3>
+      ${d.note?`<div class="meta" style="margin:2px 0 6px">${esc(d.note)}</div>`:''}
+      ${typeof d.rail==='number'?`<span class="tag">about ${d.rail} h by rail from Geneva</span>`:''}
+      ${typeof d.price==='number'?`<span class="tag">beds near €${d.price} pppn</span>`:''}
+      ${d.airport?`<span class="tag">fly into ${esc(d.airport)}</span>`:''}
+      ${flightTag(d)?`<span class="tag">${esc(flightTag(d))}</span>`:''}
+      ${d.night?`<span class="tag ok">sleeper: ${esc(d.night)}</span>`:''}
+      ${by.length?`<span class="tag pick">${by.length} pick${by.length>1?'s':''}</span>`:''}
+      ${((my.land||[]).length+(my.acts||[]).length)&&taste(d,my)?`<span class="tag ok">hits ${taste(d,my)} of what you picked</span>`:''}
+      ${d.land&&d.land.length?`<div class="meta" style="margin-top:6px">${esc(d.land.map(l=>{const m=LANDS.find(x=>x[0]===l);return m?m[1]:l;}).join(', '))} · ${esc((d.acts||[]).join(', '))}</div>`:''}
+      ${g?`<div class="meta" style="margin-top:4px">Clears everything for ${g.ok} of ${g.total}${g.names.length?': '+esc(g.names.join(', ')):''}</div>`:''}
+      ${mf.length?`<div class="meta" style="color:var(--brick)">Only thing off for you: ${esc(mf.join('; '))}</div>`:''}
+      ${by.length?`<div class="meta" style="color:var(--brick)">Picked by ${esc(by.join(', '))}</div>`:''}
+      <div class="row" style="margin-top:10px">
+        <button data-pick="${d.id}" class="${picked?'pick':''}" style="flex:1">${picked?'★ Picked':'☆ Pick this'}</button>
+        ${d.custom?`<button data-del="${d.id}">Remove</button>`:''}
+      </div></div>`;};
+  const order=arr=>arr.map(d=>({d,g:fitGroup(d),by:pickedBy(d.id),t:taste(d,my)}))
+    .sort((a,b)=>b.by.length-a.by.length||b.t-a.t||((b.g?b.g.ok:0)-(a.g?a.g.ok:0))||((a.d.rail||99)-(b.d.rail||99)))
+    .map(x=>x.d);
+  let out=cls.full.length?order(cls.full).map(d=>card(d,false)).join('')
+    :'<p class="empty">Nothing clears everything. The close matches below are one adjustment away.</p>';
+  if(cls.near.length){
+    out+=`<div style="margin:18px 0 10px;padding-top:14px;border-top:1px solid var(--line)">
+      <h3>Close, one thing off</h3>
+      <p class="meta">Still pickable. Nudge a slider and they move up.</p></div>`;
+    out+=order(cls.near).map(d=>card(d,true)).join('');
+  }
+  if(cls.custom.length){
+    out+=`<div style="margin:18px 0 10px;padding-top:14px;border-top:1px solid var(--line)">
+      <h3>Added by us</h3>
+      <p class="meta">Places the group put in by hand. They always show, whatever the filters say.</p></div>`;
+    out+=order(cls.custom).map(d=>card(d,false)).join('');
+  }
+  $('list').innerHTML=out;
+  $('list').querySelectorAll('[data-pick]').forEach(b=>b.onclick=function(){
+    if(!needName())return;
+    const id=b.getAttribute('data-pick'),cur=(state.picks[me]||[]).slice(),i=cur.indexOf(id);
+    if(i>=0)cur.splice(i,1);
+    else{if(cur.length>=MAXPICKS){showErr(MAXPICKS+' picks each. Unstar one first.');return;}cur.push(id);}
+    state.picks[me]=cur;hideErr();persist();render();});
+  $('list').querySelectorAll('[data-del]').forEach(b=>b.onclick=function(){
+    const id=b.getAttribute('data-del');
+    state.extra=(state.extra||[]).filter(x=>x.id!==id);
+    Object.keys(state.picks).forEach(n=>{state.picks[n]=(state.picks[n]||[]).filter(x=>x!==id);});
+    persist();render();});
+
+  const all=[];
+  Object.keys(state.picks).forEach(n=>(state.picks[n]||[]).forEach(id=>{if(all.indexOf(id)<0)all.push(id);}));
+  const shortHtml=all.length?all.map(id=>({d:allOpts().find(x=>x.id===id),by:pickedBy(id)}))
+    .filter(r=>r.d).sort((a,b)=>b.by.length-a.by.length)
+    .map(r=>`<div class="row" style="padding:10px 0;border-bottom:1px solid var(--line);align-items:flex-start">
+      <span class="score">${r.by.length}</span>
+      <div style="flex:1"><h3>${esc(r.d.name)}</h3><div class="meta">${esc(r.by.join(', '))}</div></div></div>`).join('')
+    :'<p class="empty">Nobody has starred anything yet.</p>';
+  $('group').innerHTML=shortHtml;
+  if($('group2'))$('group2').innerHTML=shortHtml;
+
+  renderChosen();renderAcc();renderIt();renderTasks();renderTravel();
+  $('diag').innerHTML='Storage mode: '+esc(storeMode||'none, using codes')+'<br>Protocol: '+esc(location.protocol)+
+    '<br>Seed destinations: '+SEED.length+'<br>Added by hand: '+((state.extra||[]).length)+
+    '<br>People answered: '+names.length;
+}
+
+function renderChosen(){
+  const ids=[];
+  Object.keys(state.picks).forEach(n=>(state.picks[n]||[]).forEach(id=>{if(ids.indexOf(id)<0)ids.push(id);}));
+  const pool=ids.length?ids:allOpts().map(o=>o.id);
+  $('chosen').innerHTML=['<option value="">Not decided yet</option>'].concat(pool.map(id=>{
+    const o=allOpts().find(x=>x.id===id);
+    return o?`<option value="${id}" ${state.chosen===id?'selected':''}>${esc(o.name)}</option>`:'';})).join('');
+  const o=allOpts().find(x=>x.id===state.chosen);
+  $('chosen-note').innerHTML=o?`<h3>${esc(o.name)}, ${esc(o.country)}</h3>
+    <p class="sub">${esc(o.note||'')}</p>
+    ${typeof o.rail==='number'?`<span class="tag">about ${o.rail} h by rail from Geneva</span>`:''}
+    ${o.airport?`<span class="tag">fly into ${esc(o.airport)}</span>`:''}
+    ${flightTag(o)?`<span class="tag">${esc(flightTag(o))}</span>`:''}`
+    :'<p class="sub">Nothing locked in yet.</p>';
+  const row=(who,txt)=>`<div style="padding:7px 0;border-bottom:1px solid var(--line)"><strong style="font-weight:500">${who}</strong> <span class="meta">${txt}</span></div>`;
+  $('tsum').innerHTML=o?
+    row('From Geneva',(typeof o.rail==='number'?'about '+o.rail+' h by rail, or drive':'by road')+(o.night?' &middot; sleeper: '+esc(o.night):''))
+    +row('From London','fly into '+esc(o.airport||'the nearest airport')+(flightH(o,'London')?', about '+fmtH(flightH(o,'London'))+' in the air':''))
+    +row('From Berlin','fly into '+esc(o.airport||'the nearest airport')+(flightH(o,'Berlin')?', about '+fmtH(flightH(o,'Berlin'))+' in the air':''))
+    +'<p class="meta" style="margin-top:8px">Flying times are estimated from the distance, not from timetables. Check before booking.</p>'
+    :'<p class="sub">Lock in a destination first.</p>';
+}
+function renderAcc(){
+  const el=$('a-list');
+  if(!state.acc.length){el.innerHTML='<p class="empty">No places yet.</p>';return;}
+  const L={yes:['ok','dogs ok'],fee:['ok','dogs, fee'],no:['warn','no dogs'],unknown:['warn','unchecked']};
+  el.innerHTML='<table><tr><th>Place</th><th>€/night</th><th>Sleeps</th><th>Votes</th><th></th></tr>'+
+    state.acc.slice().sort((x,y)=>Object.keys(y.votes||{}).length-Object.keys(x.votes||{}).length).map(a=>{
+    const l=L[a.dog]||L.unknown,v=Object.keys(a.votes||{}).length,mine=me&&(a.votes||{})[me];
+    return `<tr><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener">${esc(a.name)}</a>`:esc(a.name)}<br><span class="tag ${l[0]}">${l[1]}</span></td>
+      <td>${a.price?'€'+a.price:'—'}</td><td>${a.sleeps||'—'}</td><td class="count">${v}</td>
+      <td><button data-av="${a.id}" class="${mine?'solid':''}">${mine?'Voted':'Vote'}</button> <button data-ad="${a.id}">×</button></td></tr>`;}).join('')+'</table>';
+  el.querySelectorAll('[data-av]').forEach(b=>b.onclick=function(){
+    if(!needName())return;const a=state.acc.find(x=>x.id===b.getAttribute('data-av'));a.votes=a.votes||{};
+    a.votes[me]?delete a.votes[me]:a.votes[me]=1;persist();renderAcc();});
+  el.querySelectorAll('[data-ad]').forEach(b=>b.onclick=function(){
+    state.acc=state.acc.filter(x=>x.id!==b.getAttribute('data-ad'));persist();renderAcc();});
+}
+function renderIt(){
+  let out='';
+  for(let d=1;d<=7;d++){
+    const items=state.it.filter(i=>i.day===d);
+    out+=`<div class="day"><div class="daynum">Day ${d}</div>`+
+      (items.length?items.map(i=>`<div class="row" style="padding:4px 0"><span style="flex:1">${esc(i.what)}</span><span class="meta">${esc(i.who||'')}</span><button data-id="${i.id}">×</button></div>`).join(''):'<div class="meta">Open</div>')+'</div>';}
+  $('i-list').innerHTML=out;
+  $('i-list').querySelectorAll('[data-id]').forEach(b=>b.onclick=function(){
+    state.it=state.it.filter(x=>x.id!==b.getAttribute('data-id'));persist();renderIt();});
+}
+function fmtDate(d){
+  if(!d)return '';
+  try{const x=new Date(d+'T00:00:00');
+    return x.toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'});}
+  catch(e){return d;}
+}
+function renderTasks(){
+  const el=$('k-list');
+  if(!state.tasks.length){el.innerHTML='<p class="empty">Nothing assigned yet.</p>';return;}
+  const rank=t=>t.done?2:0;
+  const sorted=state.tasks.slice().sort((a,b)=>{
+    const r=rank(a)-rank(b); if(r)return r;
+    if(a.due&&b.due)return a.due<b.due?-1:a.due>b.due?1:0;
+    if(a.due)return -1;
+    if(b.due)return 1;
+    return 0;});
+  const today=new Date().toISOString().slice(0,10);
+  el.innerHTML=sorted.map(t=>{
+    const late=t.due&&!t.done&&t.due<today;
+    return `<div class="row" style="padding:8px 0;border-bottom:1px solid var(--line)">
+      <input type="checkbox" data-k="${t.id}" ${t.done?'checked':''} style="width:auto">
+      <span style="flex:1" class="${t.done?'done':''}">${esc(t.title)}</span>
+      <span class="meta">${esc(t.owner||'unassigned')}</span>
+      ${t.due?`<span class="tag ${late?'warn':''}">${esc(fmtDate(t.due))}</span>`:'<span class="tag">no date</span>'}
+      <button data-kd="${t.id}">×</button></div>`;}).join('');
+  el.querySelectorAll('[data-k]').forEach(c=>c.onchange=function(){
+    state.tasks.find(x=>x.id===c.getAttribute('data-k')).done=c.checked;persist();renderTasks();});
+  el.querySelectorAll('[data-kd]').forEach(b=>b.onclick=function(){
+    state.tasks=state.tasks.filter(x=>x.id!==b.getAttribute('data-kd'));persist();renderTasks();});
+}
+function renderTravel(){
+  const el=$('t-list');
+  if(!state.travel.length){el.innerHTML='<p class="empty">No travel plans yet.</p>';return;}
+  const key=t=>(t.adate||'9999-12-31')+' '+(t.atime||'99:99');
+  const sorted=state.travel.slice().sort((a,b)=>key(a)<key(b)?-1:key(a)>key(b)?1:0);
+  el.innerHTML=sorted.map(t=>{
+    if(t.detail&&!t.adate)return `<div class="row" style="padding:8px 0;border-bottom:1px solid var(--line)">
+      <span class="tag">${esc(t.origin||'')}</span><span style="flex:1">${esc(t.detail)}</span>
+      <button data-td="${t.id}">×</button></div>`;
+    return `<div style="padding:10px 0;border-bottom:1px solid var(--line)">
+      <div class="row" style="justify-content:space-between">
+        <div><strong style="font-weight:500">${esc(t.who||'someone')}</strong>
+          <span class="meta"> from ${esc(t.origin||'')}</span></div>
+        <button data-td="${t.id}">×</button></div>
+      <div class="meta" style="margin-top:4px">
+        <i class="ti" aria-hidden="true"></i>Arrives ${esc(fmtDate(t.adate))}${t.atime?' at '+esc(t.atime):''}${t.aat?' · '+esc(t.aat):''}</div>
+      ${t.ddate||t.dtime||t.dfrom?`<div class="meta">Leaves ${esc(fmtDate(t.ddate))}${t.dtime?' at '+esc(t.dtime):''}${t.dfrom?' · '+esc(t.dfrom):''}</div>`:''}
+    </div>`;}).join('');
+  el.querySelectorAll('[data-td]').forEach(b=>b.onclick=function(){
+    state.travel=state.travel.filter(x=>x.id!==b.getAttribute('data-td'));persist();renderTravel();});
+}
+
+function _crcTable(){var c,t=[];for(var n=0;n<256;n++){c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;}
+var _CRCT=_crcTable();
+function _crc32(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=_CRCT[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function _utf8(str){var out=[],i,c;for(i=0;i<str.length;i++){c=str.charCodeAt(i);
+  if(c<128)out.push(c);
+  else if(c<2048){out.push(192|(c>>6),128|(c&63));}
+  else if(c<55296||c>57343){out.push(224|(c>>12),128|((c>>6)&63),128|(c&63));}
+  else{i++;var c2=str.charCodeAt(i);var cp=65536+(((c&1023)<<10)|(c2&1023));
+    out.push(240|(cp>>18),128|((cp>>12)&63),128|((cp>>6)&63),128|(cp&63));}}
+  return new Uint8Array(out);}
+function _xe(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function _col(n){var s='';n++;while(n>0){var m=(n-1)%26;s=String.fromCharCode(65+m)+s;n=(n-m-1)/26;}return s;}
+function _sheetXml(rows){
+  var x='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+   +'<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>';
+  for(var r=0;r<rows.length;r++){
+    x+='<row r="'+(r+1)+'">';
+    for(var c=0;c<rows[r].length;c++){
+      var v=rows[r][c]; if(v===null||v===undefined||v==='')continue;
+      var ref=_col(c)+(r+1);
+      if(typeof v==='number'&&isFinite(v)) x+='<c r="'+ref+'"><v>'+v+'</v></c>';
+      else x+='<c r="'+ref+'" t="inlineStr"><is><t xml:space="preserve">'+_xe(v)+'</t></is></c>';
+    }
+    x+='</row>';
+  }
+  return x+'</sheetData></worksheet>';
+}
+function buildXlsx(sheets){
+  var names=sheets.map(function(s){return s.name.replace(/[\\\/\?\*\[\]:]/g,' ').slice(0,31);});
+  var files=[];
+  var ct='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+   +'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+   +'<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+   +'<Default Extension="xml" ContentType="application/xml"/>'
+   +'<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>';
+  sheets.forEach(function(s,i){ct+='<Override PartName="/xl/worksheets/sheet'+(i+1)+'.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>';});
+  ct+='</Types>';
+  files.push(['[Content_Types].xml',ct]);
+  files.push(['_rels/.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+   +'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+   +'<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>']);
+  var wb='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+   +'<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>';
+  names.forEach(function(n,i){wb+='<sheet name="'+_xe(n)+'" sheetId="'+(i+1)+'" r:id="rId'+(i+1)+'"/>';});
+  wb+='</sheets></workbook>';
+  files.push(['xl/workbook.xml',wb]);
+  var rel='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+   +'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">';
+  names.forEach(function(n,i){rel+='<Relationship Id="rId'+(i+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet'+(i+1)+'.xml"/>';});
+  rel+='</Relationships>';
+  files.push(['xl/_rels/workbook.xml.rels',rel]);
+  sheets.forEach(function(s,i){files.push(['xl/worksheets/sheet'+(i+1)+'.xml',_sheetXml(s.rows)]);});
+
+  var chunks=[],central=[],offset=0;
+  files.forEach(function(f){
+    var nameB=_utf8(f[0]), dataB=_utf8(f[1]), crc=_crc32(dataB);
+    var lh=new Uint8Array(30+nameB.length), dv=new DataView(lh.buffer);
+    dv.setUint32(0,0x04034b50,true); dv.setUint16(4,20,true); dv.setUint16(6,0x0800,true);
+    dv.setUint16(8,0,true); dv.setUint16(10,0,true); dv.setUint16(12,0,true);
+    dv.setUint32(14,crc,true); dv.setUint32(18,dataB.length,true); dv.setUint32(22,dataB.length,true);
+    dv.setUint16(26,nameB.length,true); dv.setUint16(28,0,true);
+    lh.set(nameB,30);
+    chunks.push(lh,dataB);
+    var ch=new Uint8Array(46+nameB.length), cv=new DataView(ch.buffer);
+    cv.setUint32(0,0x02014b50,true); cv.setUint16(4,20,true); cv.setUint16(6,20,true);
+    cv.setUint16(8,0x0800,true); cv.setUint16(10,0,true); cv.setUint16(12,0,true); cv.setUint16(14,0,true);
+    cv.setUint32(16,crc,true); cv.setUint32(20,dataB.length,true); cv.setUint32(24,dataB.length,true);
+    cv.setUint16(28,nameB.length,true); cv.setUint16(30,0,true); cv.setUint16(32,0,true);
+    cv.setUint16(34,0,true); cv.setUint16(36,0,true); cv.setUint32(38,0,true); cv.setUint32(42,offset,true);
+    ch.set(nameB,46);
+    central.push(ch);
+    offset+=lh.length+dataB.length;
+  });
+  var cdSize=central.reduce(function(a,b){return a+b.length;},0);
+  var eocd=new Uint8Array(22), ev=new DataView(eocd.buffer);
+  ev.setUint32(0,0x06054b50,true); ev.setUint16(8,files.length,true); ev.setUint16(10,files.length,true);
+  ev.setUint32(12,cdSize,true); ev.setUint32(16,offset,true);
+  var total=chunks.reduce(function(a,b){return a+b.length;},0)+cdSize+22;
+  var out=new Uint8Array(total), pos=0;
+  chunks.forEach(function(c){out.set(c,pos);pos+=c.length;});
+  central.forEach(function(c){out.set(c,pos);pos+=c.length;});
+  out.set(eocd,pos);
+  return out;
+}
+
+function exportWorkbook(){
+  const opts=allOpts();
+  const byId=id=>opts.find(o=>o.id===id);
+  const chosen=byId(state.chosen);
+  const people=Object.keys(state.prefs||{});
+  const landName=l=>{const m=LANDS.find(x=>x[0]===l);return m?m[1]:l;};
+
+  const summary=[['Group holiday planning platform'],
+    ['Exported',new Date().toLocaleString()],
+    ['Destination locked in',chosen?chosen.name+', '+chosen.country:'not decided yet'],
+    ['People who have answered',people.length],
+    ['Destination options',opts.length],
+    ['Added by hand',(state.extra||[]).length],[]];
+  if(chosen){
+    summary.push(['Getting to '+chosen.name]);
+    summary.push(['From Geneva',(typeof chosen.rail==='number'?'about '+chosen.rail+' h by rail':'')+(chosen.night?' · sleeper: '+chosen.night:'')]);
+    summary.push(['From London and Berlin',chosen.airport?'fly into '+chosen.airport:'']);
+  }
+
+  const peopleRows=[['Name','Travelling from','Bed budget per night (EUR)','Max daytime rail from Geneva (h)','Kinds of place','Activities wanted','Number of picks']];
+  people.forEach(n=>{const p=state.prefs[n];
+    peopleRows.push([n,p.origin||'',typeof p.price==='number'?p.price:'',
+      p.origin==='Geneva'&&typeof p.hours==='number'?p.hours:'',
+      (p.land||[]).map(landName).join(', '),(p.acts||[]).join(', '),(state.picks[n]||[]).length]);});
+
+  const destRows=[['Destination','Country','Rail from Geneva (h)','Sleeper route','Bed price per night (EUR)','Fly into','Landscape','Activities','Notes','Added by hand','Times picked','Picked by']];
+  opts.forEach(d=>{const by=pickedBy(d.id);
+    destRows.push([d.name,d.country||'',typeof d.rail==='number'?d.rail:'',d.night||'',
+      typeof d.price==='number'?d.price:'',d.airport||'',
+      (d.land||[]).map(landName).join(', '),(d.acts||[]).join(', '),d.note||d.desc||'',
+      d.custom?'yes':'',by.length,by.join(', ')]);});
+
+  const pickRows=[['Person','Destination','Country']];
+  people.forEach(n=>(state.picks[n]||[]).forEach(id=>{const d=byId(id);
+    if(d)pickRows.push([n,d.name,d.country||'']);}));
+
+  const accRows=[['Place','Link','Price per night (EUR)','Sleeps','Dog policy','Votes','Voted by']];
+  const dogTxt={yes:'dogs allowed',fee:'dogs, extra fee',no:'no dogs',unknown:'not checked'};
+  (state.acc||[]).forEach(a=>accRows.push([a.name,a.link||'',a.price||'',a.sleeps||'',
+    dogTxt[a.dog]||'not checked',Object.keys(a.votes||{}).length,Object.keys(a.votes||{}).join(', ')]));
+
+  const itRows=[['Day','What we are doing','Suggested by']];
+  for(let d=1;d<=7;d++)(state.it||[]).filter(i=>i.day===d).forEach(i=>itRows.push([d,i.what,i.who||'']));
+
+  const trRows=[['Who','Travelling from','Arrival date','Arrival time','Arriving at','Departure date','Departure time','Leaving from']];
+  (state.travel||[]).slice().sort((a,b)=>((a.adate||'')+(a.atime||''))<((b.adate||'')+(b.atime||''))?-1:1)
+    .forEach(t=>trRows.push([t.who||'',t.origin||'',t.adate||'',t.atime||'',t.aat||'',t.ddate||'',t.dtime||'',t.dfrom||'']));
+
+  const taskRows=[['Task','Owner','Due date','Done']];
+  (state.tasks||[]).slice().sort((a,b)=>{if(a.due&&b.due)return a.due<b.due?-1:1;if(a.due)return -1;if(b.due)return 1;return 0;})
+    .forEach(t=>taskRows.push([t.title,t.owner||'',t.due||'',t.done?'yes':'no']));
+
+  return buildXlsx([
+    {name:'Summary',rows:summary},
+    {name:'People and answers',rows:peopleRows},
+    {name:'Destinations',rows:destRows},
+    {name:'Picks',rows:pickRows},
+    {name:'Accommodation',rows:accRows},
+    {name:'Itinerary',rows:itRows},
+    {name:'Travel plans',rows:trRows},
+    {name:'Tasks',rows:taskRows}]);
+}
+function downloadWorkbook(){
+  try{
+    const bytes=exportWorkbook();
+    const blob=new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    const d=new Date(),pad=n=>String(n).padStart(2,'0');
+    a.href=url;
+    a.download=String(d.getFullYear()).slice(2)+pad(d.getMonth()+1)+pad(d.getDate())+'_holiday_planning_export_v01.xlsx';
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(url);a.remove();},1000);
+    setStatus('Exported to Excel');
+  }catch(e){setStatus('Export failed: '+(e&&e.message?e.message:'unknown'));}
+}
+
+function needName(){me=$('me').value.trim();
+  if(!me){$('me').focus();$('me').style.borderColor='var(--brick)';showErr('Add your name at the top first.');return false;}
+  $('me').style.borderColor='';return true;}
+function showErr(t){const e=$('err');e.textContent=t;e.hidden=false;}
+function hideErr(){$('err').hidden=true;}
+
+$('export').onclick=downloadWorkbook;
+$('mode').onchange=e=>{mode=e.target.value;render();};
+$('q-price').oninput=e=>{my.price=+e.target.value;$('price-out').textContent='up to €'+my.price;render();};
+$('q-hours').oninput=e=>{my.hours=+e.target.value;$('hrs-out').textContent=my.hours+' h';render();};
+$('act-add').onclick=function(){
+  const v=$('act-new').value.trim();if(!v)return;
+  if(!allActs().some(a=>a.toLowerCase()===v.toLowerCase()))state.custom=(state.custom||[]).concat(v);
+  if(my.acts.indexOf(v)<0)my.acts.push(v);
+  $('act-new').value='';buildChips();sync();persist();render();};
+$('save').onclick=function(){
+  if(!needName())return;
+  if(!my.origin){showErr('Pick where you are travelling from.');return;}
+  hideErr();state.prefs[me]=JSON.parse(JSON.stringify(my));persist();render();};
+
+$('m-add').onclick=function(){
+  const e=$('m-err'),ok=$('m-ok');
+  const n=$('m-name').value.trim(),c=$('m-country').value.trim();
+  if(!n||!c){e.textContent='City or town and country are both needed.';e.hidden=false;ok.hidden=true;return;}
+  e.hidden=true;
+  const match=Object.keys(COUNTRIES).find(k=>k.toLowerCase()===c.toLowerCase());
+  const at=match?COUNTRIES[match]:null;
+  const item={id:uid(),custom:true,name:n,country:match||c,desc:$('m-desc').value.trim(),
+    note:$('m-desc').value.trim(),land:[],acts:[],short:n.split(',')[0],
+    lat:at?at[0]:null,lon:at?at[1]:null,rail:null,price:null,airport:''};
+  state.extra=(state.extra||[]).concat([item]);
+  $('m-name').value='';$('m-country').value='';$('m-desc').value='';
+  ok.textContent=at?n+' added, shown in pink on the map. Look under "Added by us" below.'
+    :n+' added under "Added by us" below. No dot on the map, the country was not recognised.';ok.hidden=false;
+  persist();render();};
+
+function tab(w){const m={align:'p-align',short:'p-short',plan:'p-plan'};
+  Object.keys(m).forEach(k=>{$(m[k]).hidden=k!==w;$('tab-'+k).setAttribute('aria-selected',k===w);});
+}
+$('tab-align').onclick=()=>tab('align');
+$('tab-short').onclick=()=>tab('short');
+$('tab-plan').onclick=()=>tab('plan');
+
+document.querySelectorAll('.subnav button').forEach(b=>b.onclick=function(){
+  document.querySelectorAll('.subnav button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.querySelectorAll('.page').forEach(p=>p.hidden=true);
+  $('pg-'+b.getAttribute('data-page')).hidden=false;});
+
+$('set-chosen').onclick=function(){state.chosen=$('chosen').value;persist();renderChosen();};
+$('a-add').onclick=function(){const e=$('a-err'),n=$('a-name').value.trim();
+  if(!n){e.textContent='Give the place a name.';e.hidden=false;return;}
+  e.hidden=true;
+  state.acc.push({id:uid(),name:n,link:$('a-link').value.trim(),price:+$('a-price').value||0,
+    sleeps:+$('a-sleeps').value||0,dog:$('a-dog').value,votes:{}});
+  ['a-name','a-link','a-price','a-sleeps'].forEach(i=>$(i).value='');
+  persist();renderAcc();};
+$('i-day').innerHTML=[1,2,3,4,5,6,7].map(d=>`<option value="${d}">Day ${d}</option>`).join('');
+$('i-add').onclick=function(){const e=$('i-err'),w=$('i-what').value.trim();
+  if(!w){e.textContent='Say what we are doing.';e.hidden=false;return;}
+  e.hidden=true;
+  state.it.push({id:uid(),day:+$('i-day').value,what:w,who:$('i-who').value.trim()});
+  $('i-what').value='';$('i-who').value='';persist();renderIt();};
+$('k-add').onclick=function(){const e=$('k-err'),t=$('k-title').value.trim();
+  if(!t){e.textContent='Write the task first.';e.hidden=false;return;}
+  e.hidden=true;
+  state.tasks.push({id:uid(),title:t,owner:$('k-owner').value.trim(),due:$('k-due').value.trim(),done:false});
+  ['k-title','k-owner','k-due'].forEach(i=>$(i).value='');
+  persist();renderTasks();};
+$('t-add').onclick=function(){
+  const e=$('t-err');
+  const who=($('t-who').value||$('me').value).trim();
+  const adate=$('t-adate').value;
+  if(!who){e.textContent='Whose plan is this?';e.hidden=false;return;}
+  if(!adate){e.textContent='An arrival date is needed so plans can be ordered.';e.hidden=false;return;}
+  e.hidden=true;
+  state.travel.push({id:uid(),who:who,origin:$('t-origin').value,
+    adate:adate,atime:$('t-atime').value,aat:$('t-aat').value.trim(),
+    ddate:$('t-ddate').value,dtime:$('t-dtime').value,dfrom:$('t-dfrom').value.trim()});
+  ['t-who','t-adate','t-atime','t-aat','t-ddate','t-dtime','t-dfrom'].forEach(i=>$(i).value='');
+  persist();renderTravel();};
+$('me').onchange=function(){me=$('me').value.trim();
+  if(me&&$('t-who')&&!$('t-who').value)$('t-who').value=me;
+  if(me&&state.prefs[me]){my=Object.assign(my,state.prefs[me]);buildChips();sync();}
+  render();};
+
+(async function(){
+  await probe();
+  const stored=await readStore();
+  if(stored)state=merge(state,stored);
+  if(location.hash&&location.hash.indexOf('#b=')===0){
+    const p=decode(location.hash.slice(3));
+    if(p)state=merge(state,p);
+  }
+  setStatus(storeMode?(storeMode==='shared'?'Live · shared with the group':'Saving on this device only'):'Not saving yet · publish this artifact to switch storage on');
+  lastSeen=JSON.stringify(state);
+  fillCountries();
+  buildChips();sync();render();
+  if(storeMode)setInterval(poll,4000);
+})();
+</script>
