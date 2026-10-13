@@ -7,8 +7,8 @@ Instagram: dudu.experiments
 
 ## Projects
 
-| # | Project | What it is | Prompt |
-|---|---------|------------|--------|
+| # | Project | What it is | Try it | Prompt |
+|---|---------|------------|--------|--------|
 | 01 | Travel planning platform | A page where friends coming from different cities choose a one-week holiday together (made for our specific use case, you'll have to adapt the cities and source data to your use case) | <add live link> | [prompt](01_travel_platform/prompt.md) |
 
 New projects are added as new videos get posted. 
