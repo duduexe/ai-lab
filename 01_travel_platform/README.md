@@ -9,6 +9,7 @@ A single HTML page where friends who leave from different cities choose a one-we
 1. Open the live link, or download `index.html` and open it in your browser.
 2. Pick what you want (kind of place, activities, budget, maximum travel time).
 3. Star up to five favourites and build the plan.
+Note: This was made for our specific use case, you'll have to adapt the cities and source data to your specific use case
 
 ## Recreate it yourself
 Open `prompt.md`, paste it into Claude, and answer the 4 questions it asks first (departure points, travel limits, places to avoid, month).
