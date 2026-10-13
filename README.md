@@ -1,6 +1,6 @@
 # AI Lab
 
-Weekly AI experiments from my TikTok/Instagram channels. Each folder is one video: the result you can use, and the prompt to recreate it from scratch.
+AI experiments from my TikTok/Instagram channels. Each folder is one video: the result you can leverage, and the prompt to recreate it from scratch/build on.
 
 TikTok: dudu.experiments
 Instagram: dudu.experiments
@@ -11,7 +11,7 @@ Instagram: dudu.experiments
 |---|---------|------------|--------|--------|
 | 01 | Travel planning platform | A page where friends coming from different cities choose a one-week holiday together (made for our specific use case, you'll have to adapt the cities and source data to your use case) | <add live link> | [prompt](01_travel_platform/prompt.md) |
 
-New projects are added every week.
+New projects are added as new videos get posted. 
 
 ## How to use a project
 
