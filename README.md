@@ -23,6 +23,10 @@ You have two options:
 
 You can also open the project's live link to try it first.
 
+## Copyright and use
+
+© 2026 dudu.exe. These projects, prompts and guides are my own creations. You are welcome to use them for yourself, learn from them and adapt them for personal, non-commercial use. Please do not sell them, resell them or use them to make money, and please credit dudu.exe if you share or build on them.
+
 ## Good to know
 
 - Everything here is made with AI and shared as is, with no guarantee. Check facts before you rely on them.
