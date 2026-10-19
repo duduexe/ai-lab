@@ -20,11 +20,14 @@ The full walkthrough, with screenshots of every step, is in [guide.pdf](guide.pd
 
 **To try it:** open the live link, or download `index.html` and open it in your browser. It then runs as a one-screen preview: the page shows "Saving isn't available in this view", nothing is shared between the two of you, and Download Excel is not available.
 
-**To use it for real, as a couple:** no prompt needed, just the HTML file.
+**To use it for real, as a couple:** you only need the HTML file.
 1. Start a new chat in Claude, attach `index.html` and ask Claude to publish it as an Artifact, exactly as it is, with these capabilities: db, user, sample and downloads.
 2. Open the link Claude gives you and check that the yellow bar "Saving isn't available in this view" is not there. If it is, ask Claude to republish the page with the same four capabilities.
 3. Share the page with your partner from the Share menu, with access that lets them make changes. Your partner needs to be signed in to Claude.
 4. Each of you opens the same link, types a first name and picks Bride, Groom or Partner.
+
+## Recreate it yourself
+Open [prompt.md](prompt.md), paste the prompt into Claude, and answer the 3 questions it asks first (the event and role labels, the currencies, and the full or lighter version).
 
 ## Built with
 Claude.
