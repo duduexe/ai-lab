@@ -1,6 +1,6 @@
 # 02 Who Gets a Seat
 
-Video: <add TikTok link>  |  Try it: <add live link>  |  Guide: [guide.pdf](guide.pdf)
+Video: <add TikTok link>  |  Try it: https://duduexe.github.io/ai-lab/02_who_gets_a_seat/  |  Guide: [guide.pdf](guide.pdf)
 
 ## What it does
 A guest list alignment platform for two people planning a wedding. You each answer on your own first, then agree together, in seven steps:
