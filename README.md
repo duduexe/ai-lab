@@ -16,8 +16,12 @@ New projects are added as new videos get posted.
 
 ## How to use a project
 
-1. Open the project's live link, or download its `index.html` and open it in your browser.
-2. To recreate it yourself, open the project's `prompt.md`, paste it into Claude, and answer the questions it asks.
+You have two options:
+
+1. **Recreate it from scratch.** Open the project's `prompt.md`, paste it into Claude, and answer the questions it asks.
+2. **Use the HTML code.** Download the project's `index.html` and either host it as an artifact in your own Claude (attach the file to a Claude chat and ask Claude to publish it as an artifact), or host it on any other hosting platform. Some projects need specific Claude features to save and share data, so check the project's own README.
+
+You can also open the project's live link to try it first.
 
 ## Good to know
 
