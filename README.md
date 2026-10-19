@@ -2,15 +2,23 @@
 
 AI experiments from my TikTok/Instagram channels. Each folder is one video: the result you can leverage, and the prompt to recreate it from scratch/build on.
 
-TikTok: dudu.experiments
-Instagram: dudu.experiments
+- TikTok: dudu.experiments
+- Instagram: dudu.experiments
 
 ## Projects
 
-| # | Project | What it is | Try it | Prompt |
-|---|---------|------------|--------|--------|
-| 01 | Travel planning platform | A page where friends coming from different cities choose a one-week holiday together (made for our specific use case, you'll have to adapt the cities and source data to your use case) | https://duduexe.github.io/ai-lab/01_travel_platform/ | [prompt](01_travel_platform/prompt.md) |
-| 02 | Who Gets a Seat | A guest list alignment platform where two people agree on who to invite to their wedding, in seven steps ([guide](02_who_gets_a_seat/guide.pdf)) | https://duduexe.github.io/ai-lab/02_who_gets_a_seat/ | [prompt](02_who_gets_a_seat/prompt.md) |
+### 01 Travel planning platform
+A page where friends coming from different cities choose a one-week holiday together. Made for our specific use case, so you'll have to adapt the cities and source data to yours.
+
+- Try it: https://duduexe.github.io/ai-lab/01_travel_platform/
+- [Prompt](01_travel_platform/prompt.md)
+
+### 02 Who Gets a Seat
+A guest list alignment platform where two people agree on who to invite to their wedding, in seven steps.
+
+- Try it: https://duduexe.github.io/ai-lab/02_who_gets_a_seat/
+- [Prompt](02_who_gets_a_seat/prompt.md)
+- [Guide (PDF)](02_who_gets_a_seat/guide.pdf)
 
 New projects are added as new videos get posted. 
 
