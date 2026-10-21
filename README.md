@@ -20,6 +20,12 @@ A guest list alignment platform where two people agree on who to invite to their
 - [Prompt](02_who_gets_a_seat/prompt.md)
 - [Guide (PDF)](02_who_gets_a_seat/guide.pdf)
 
+### 03 Clone your own voice locally and for free
+A step-by-step guide to running a copy of your own voice on your own computer with OmniVoice, with no account, subscription or credit limits.
+
+- [Guide (PDF)](03_voice_cloning/guide.pdf)
+- [Prompt](03_voice_cloning/prompt.md)
+
 New projects are added as new videos get posted. 
 
 ## How to use a project
