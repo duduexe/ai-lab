@@ -26,6 +26,12 @@ A step-by-step guide to running a copy of your own voice on your own computer wi
 - [Guide (PDF)](03_voice_cloning/guide.pdf)
 - [Prompt](03_voice_cloning/prompt.md)
 
+### 04 Animate your videos with Claude and Remotion
+A step-by-step guide to adding word-by-word captions, graphics, effects and animations to your short videos just by asking Claude. Free, other than a Claude subscription.
+
+- [Guide (PDF)](04_remotion_animation/guide.pdf)
+- [Guide (read on GitHub, with every prompt)](04_remotion_animation/guide.md)
+
 New projects are added as new videos get posted. 
 
 ## How to use a project
