@@ -382,7 +382,7 @@ with my clip, plus stills, and tell me which ones are only partly done.
 
 ### How it works
 
-These are bigger, full-screen effects. Some need a **cut-out** of you (your video with the background removed) so things can pass behind your head, and some follow your face with **face tracking**. The names come from public lists posted by **@charliehills** ("20 video effects for Claude") and **@tenfoldmarc** ("16 video effects claude can create") on Instagram. I only used the names and screenshots as inspiration: no footage, code or branding of theirs. Claude built **our own versions**.
+These are bigger, full-screen effects that change how your video itself looks: the camera moves, zooms or turns, the shot breaks, or things pass behind you. Some need a **cut-out** of you (your video with the background removed) so things can pass behind your head, and some follow your face with **face tracking**. The names come from public lists posted by **@charliehills** ("20 video effects for Claude") and **@tenfoldmarc** ("16 video effects claude can create") on Instagram. I only used the names and screenshots as inspiration: no footage, code or branding of theirs. Claude built **our own versions**.
 
 ### Full list of effects
 
@@ -402,9 +402,7 @@ These are bigger, full-screen effects. Some need a **cut-out** of you (your vide
 | Pull-Back Reveal | The camera pulls back to show your video inside a made-up editing app with a timeline | "Add reel effect `pullBackReveal`: the camera pulls back and my video is inside a made-up video editor window with clips, a sound wave and a moving playhead. Not a real app." |
 | Shutter snapshots | Three snapshots of earlier moments snap on, each with a camera flash | "Add reel effect `shutterStrike`: three instant-photo snapshots of earlier moments snap on at the top, each with a white camera flash." |
 | Digital zoom | Quick punch-in zooms on your face to stress a word | "Add reel effect `digitalZoom`: quick punch-in zooms on my face to stress a word (crop only, no filter)." |
-| Comment bubble | A viewer comment card pops in and gets a heart | "Add reel effect `commentBubble`: a viewer-style comment card pops in and gets a heart. Setting: comment text." |
 | Phone mockup | Your video plays in one floating phone | "Add reel effect `phoneMockup`: my video plays inside one phone that floats gently on a coloured stage." |
-| Liquid Glass | A frosted glass bar with four icons slides up; a glass bubble hops between icons | "Add reel effect `liquidGlass`: a frosted glass bar slides up with four simple icons; a glass bubble hops from icon to icon and the active icon changes colour." (Ours is a blur, it does not bend the picture like real liquid glass.) |
 | Zoom-Through | The camera rushes into your face with speed lines and comes out in the next shot | "Add reel effect `zoomThrough`: the camera rushes into my face with white speed lines and comes out in the next clip." |
 | Spotlight | The room goes dark and a round light follows your face | "Add reel effect `spotlight`: the room goes dark and a round light opens on my face and follows it." (It darkens your footage around the face.) |
 | Paper cut | The shot tears apart like paper, the next shot is underneath | "Add reel effect `paperCut`: the shot tears apart like paper and the next clip is underneath." |
@@ -428,7 +426,6 @@ These are bigger, full-screen effects. Some need a **cut-out** of you (your vide
 | Green screen | Your room is swapped for a new background | "Add reel effect `greenScreen`: my room is swapped for a new background (a picture or a coloured stage), I stay in front." |
 | UI world | You stand inside a giant app screen that drifts past behind you | "Add reel effect `uiWorld`: I stand inside a giant made-up app screen that slowly drifts past behind me." |
 | Doodle boil | Chalky hand-drawn outlines around you wiggle, with squiggles and circles | "Add reel effect `doodleBoil`: chalky hand-drawn outlines trace around me and wiggle like hand-drawn animation, with squiggles and circles." |
-| Sticky text | A label sticks next to your head and follows you | "Add reel effect `stickyText`: a coloured label sticks next to my head and follows me as I move. Setting: text." |
 
 ## Step 7: Add motion animations
 
@@ -458,7 +455,7 @@ Render one demo video with every graphic, effect and animation, 3 seconds each, 
 
 ### How it works
 
-Short, polished animations that work on their own or over your video. The names come from Charlie Hills' carousel "Claude Motion Physics: 16 premium animations you can clone". Ours are our own versions.
+Short, polished animations that work on their own or over your video, without changing your video itself. Liquid Glass, Comment bubble and Sticky text came from the effects lists, but they are animated graphics on top of your video, so they are here. The names come from Charlie Hills' carousel "Claude Motion Physics: 16 premium animations you can clone". Ours are our own versions.
 
 ### Full list of motion animations
 
@@ -478,6 +475,9 @@ Short, polished animations that work on their own or over your video. The names 
 | Orbit | A glowing planet with rings and a small moon going round | "Add motion animation `orbit`: a glowing planet with rings and a small moon going round it." |
 | Button press | A cursor presses a button, it fills and turns into "Posted ✓" | "Add motion animation `buttonPress`: a cursor presses a 'Publish' button, it fills and turns into 'Posted ✓'." |
 | Confetti burst | A check badge pops and confetti bursts out | "Add motion animation `confettiBurst`: a check badge pops and confetti bursts out, with the text 'You're live'." |
+| Comment bubble | A viewer comment card pops in and gets a heart | "Add motion animation `commentBubble`: a viewer-style comment card pops in and gets a heart. Setting: comment text." |
+| Liquid Glass | A frosted glass bar with four icons slides up; a glass bubble hops between icons | "Add motion animation `liquidGlass`: a frosted glass bar slides up with four simple icons; a glass bubble hops from icon to icon and the active icon changes colour." (Ours is a blur, it does not bend the picture like real liquid glass. It plays over your video and does not change it.) |
+| Sticky text | A label sticks next to your head and follows you | "Add motion animation `stickyText`: a coloured label sticks next to my head and follows me as I move (uses face tracking). Setting: text." |
 
 ## Step 8 (optional): Add free Lottie animations
 
