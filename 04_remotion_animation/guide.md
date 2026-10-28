@@ -2,7 +2,9 @@
 
 **For free, other than a Claude subscription.** How I add animations, effects and word-by-word captions to my short videos just by asking Claude. No video editing app, no paid tools on top of my Claude plan.
 
-**You need:** a paid Claude plan (Pro or Max) and the Claude desktop app (or claude.ai/code in a browser). A GitHub account is only needed in some cases (see Step 1).
+**You need:** a paid Claude plan (Pro or Max) and the Claude desktop app (or claude.ai/code in a browser), or Claude Code on your own computer (Option C in Step 1). A GitHub account is only needed in some cases (see Step 1).
+
+**Three ways to follow this guide:** Option A is a Claude project (what I use), Option B is a normal cloud session, Option C is Claude Code on your own computer. Every step has the same prompts for all three. Where Option C is different, a purple box tells you what to do.
 
 **How to read this guide:** each step starts with **What to do** (the actions and the prompts to copy), then **How it works** (the details, if you are curious).
 
@@ -10,7 +12,7 @@
 
 **Picture: Steps 1 to 8 are done once, steps 9 and 10 for every video**
 
-![Steps 1 to 8 are done once, steps 9 and 10 for every video](images/261024_overview_steps_v02.png)
+![Steps 1 to 8 are done once, steps 9 and 10 for every video](images/261024_overview_steps_v03.png)
 
 ## What you get
 
@@ -26,7 +28,7 @@ You never touch a video editing app. You talk to Claude, Claude changes one text
 
 | Item | Cost in my setup | Note |
 |---|---|---|
-| Claude | My existing paid plan | No extra charge for the cloud computer Claude uses, but it counts toward your plan's usage limits. |
+| Claude | My existing paid plan | No extra charge for the cloud computer Claude uses, but it counts toward your plan's usage limits. Option C (Claude Code on your computer) also needs a Claude plan. |
 | Remotion (makes the video) | Free for me | Free for individuals and small companies (up to 3 employees). Bigger companies pay. |
 | Speech-to-text (Parakeet + Whisper) | Free | Free models. No account or key needed. |
 | Lottie animations | Free | Free animations from LottieFiles. |
@@ -38,6 +40,7 @@ Details and sources for each are in [Licences and costs](#licences-and-costs).
 
 - **Remotion:** a tool that makes videos from code. Instead of dragging clips on a timeline, Claude describes the video in code and Remotion draws it, frame by frame, into an MP4.
 - **Render:** turning the project into the finished video file.
+- **Claude Code:** Claude working with files and programs, in an app or in a terminal.
 - **Cloud session:** Claude working on its own small computer online. It can install tools, run them and send you files. Nothing is installed on your computer.
 - **Skill:** a pack of instructions that teaches Claude how to do one kind of task well.
 - **timeline.json:** one text file that lists everything in your video (your clip, each caption word, each animation) with its start time and length in seconds. To edit the video, Claude only changes this file.
@@ -47,7 +50,7 @@ Details and sources for each are in [Licences and costs](#licences-and-costs).
 - **Cut-out:** a copy of your video with the background removed, so things can pass *behind* your head.
 - **Safe zones:** the parts of the screen that TikTok or Instagram cover with buttons and text. Animations must stay out of them.
 
-## Step 1: Start a cloud session
+## Step 1: Choose where Claude works
 
 ### What to do
 
@@ -71,12 +74,27 @@ I want to animate my short videos (TikTok, Instagram Reels) with Remotion: word-
 3. **Pick a GitHub repository.** If you don't have one, create an empty repository with a README on github.com first.
 4. **Paste the prompts** of the next steps directly in this session, one at a time.
 
+**Option C: Claude Code on your own computer. No project, no GitHub.**
+
+1. **Install Claude Code.** On a Mac or Linux, open the Terminal and paste `curl -fsSL https://claude.ai/install.sh | bash`. On Windows, open PowerShell and paste `irm https://claude.ai/install.ps1 | iex`. Never used a terminal? The [terminal guide](https://code.claude.com/docs/en/terminal-guide) shows how. (Or use the Claude desktop app, go to **Code**, and pick **Local** instead of Cloud.)
+2. **Make a folder for your videos**, open the terminal in that folder and type `claude`. Log in with your Claude plan when it asks.
+3. **Paste this prompt:**
+
+```text
+I want to animate my short videos (TikTok, Instagram Reels) with Remotion: word-by-word captions, graphics and effects. Work in this folder and keep all the files here. First check my computer for what Remotion needs (Node.js, FFmpeg and a browser), tell me what is missing, and install it once I say OK. I will paste the prompts of the next steps one by one.
+```
+
+4. **Say OK** when Claude asks to install something or run a command.
+5. **For each new video later**, copy the video file into the folder and tell Claude its name.
+
 ### How it works
 
 - A cloud session means Claude works on its own computer online: it can install tools, run them, and send you the finished video. Nothing is installed on your computer.
 - In a project, Claude starts a cloud session (a "thread") for each task by itself, and your files stay in the project's **Library** between sessions. Claude's docs say projects work with "the files, folders, and Google Drive folders you upload to the project", and GitHub is only needed "if the project will work on code" that lives in a GitHub repository. Note: "Projects are in public beta on Pro and Max plans and rolling out gradually", so you may not have it yet ([projects docs](https://code.claude.com/docs/en/claude-projects.md)).
 - In the desktop app, a normal session does not pick Cloud for you: "Before you send your first message, choose the environment, project folder, permission mode, and model in the row under the prompt box." ([desktop docs](https://code.claude.com/docs/en/desktop.md))
 - A normal cloud session needs GitHub: "Cloud sessions require a connected GitHub account" and "You'll need a GitHub repository to get started" ([cloud quickstart](https://code.claude.com/docs/en/web-quickstart.md)). Your editor is saved in the repository, so nothing is lost when the cloud computer is wiped.
+
+**Option C, how it works:** Claude works on your own computer instead of an online one. Claude's docs list what you need: "A Claude subscription (Pro, Max, Team, or Enterprise)" or another supported account ([quickstart](https://code.claude.com/docs/en/quickstart.md)). The docs also say "Claude Code reads your project files as needed". Your files stay in your folder, so nothing is wiped when a session ends. Claude asks before it runs commands, depending on the permission mode you choose ([permission modes](https://code.claude.com/docs/en/permission-modes.md)). **My inference, not tested in this project:** the computer needs enough free space and speed for the video tools, and Claude has to install them first. I did not check Remotion's official list of requirements, so the first prompt asks Claude to find out for you.
 
 ## Step 2: Add the Remotion skills
 
@@ -89,6 +107,8 @@ I want to animate my short videos (TikTok, Instagram Reels) with Remotion: word-
 ```text
 Download the official Remotion agent skills from github.com/remotion-dev/skills, save them with my project files so they are kept for the next sessions, and follow them whenever you work on my videos.
 ```
+
+**With Option C:** nothing changes for Option 2: Claude saves the skills in your folder. Option 1 (the plugin) should work the same way in Claude Code, but I have not tested that.
 
 ### How it works
 
@@ -132,6 +152,8 @@ Keep it simple and explain any design word you use.
 ```
 
 **Keep this brand file:** the setup prompt in the next step asks for it.
+
+**With Option C:** copy your brand files into your folder and tell Claude their names. Claude saves the brand file in your folder.
 
 ### How it works
 
@@ -220,6 +242,13 @@ Before you start, ask me (one question at a time) for anything you need, for exa
 2. **Answer Claude's questions.**
 3. **Check the 5-second test video** and the still with the safe zones drawn on it. Compare it with a screenshot from your phone and ask for changes if needed.
 
+**With Option C:** the setup prompt is the same, with these differences:
+
+1. When Claude asks where to save the editor, answer: **"Claude Code on my computer, save it in this folder."** (Item 2 of the prompt.)
+2. Instead of attaching the test video, **copy it into your folder** and tell Claude its name.
+3. Claude installs what is missing on your computer: **Node.js** (runs Remotion), **FFmpeg** (handles audio and video) and, for Steps 6 and 9, some **Python** tools (the cut-out, face tracking and transcription). Approve each install.
+4. Item 8 of the prompt (the cloud Chrome fix) is usually not needed. If the render fails because of the browser, tell Claude to use the Chrome installed on your computer.
+
 ### How it works
 
 **One timeline file.** Every new video is just a new timeline, and every animation you build once can be reused forever. Claude writes the timeline for you, you never have to. One line of it looks like this:
@@ -267,6 +296,8 @@ graphic, check the stills against my brand rules and the safe zones, and send th
 2. **Answer Claude's question about your topics**, then check the preview video and stills.
 3. **Give feedback in plain words** ("no rotation", "bigger text"). Claude saves each rule in your brand file, so the next graphics follow it.
 4. **Whenever you want more, paste a prompt from the full list below**, one (or a few) at a time. Replace the example text with yours.
+
+**With Option C:** nothing changes except that videos and pictures are made on your computer and saved in your folder. If you send screenshots as examples, copy them into the folder.
 
 ### How it works
 
@@ -380,6 +411,8 @@ with my clip, plus stills, and tell me which ones are only partly done.
 2. **Say which effects you like** and whether you are OK with a cut-out of you, then check the demo video.
 3. **Whenever you want more, paste a prompt from the full list below.**
 
+**With Option C:** the cut-out and the face tracking need Python tools on your computer (Claude installs them, with your OK). In the cloud the cut-out took about 1.5 minutes for an 8-second clip. On your own computer the time depends on your machine, which I have not measured. If you send screenshots of effects you like, copy them into the folder.
+
 ### How it works
 
 These are bigger, full-screen effects that change how your video itself looks: the camera moves, zooms or turns, the shot breaks, or things pass behind you. Some need a **cut-out** of you (your video with the background removed) so things can pass behind your head, and some follow your face with **face tracking**. The names come from public lists posted by **@charliehills** ("20 video effects for Claude") and **@tenfoldmarc** ("16 video effects claude can create") on Instagram. I only used the names and screenshots as inspiration: no footage, code or branding of theirs. Claude built **our own versions**.
@@ -453,6 +486,8 @@ Before you start, ask me where I would use them. Then render a demo video and st
 Render one demo video with every graphic, effect and animation, 3 seconds each, with the name on screen.
 ```
 
+**With Option C:** nothing changes.
+
 ### How it works
 
 Short, polished animations that work on their own or over your video, without changing your video itself. Liquid Glass, Comment bubble and Sticky text came from the effects lists, but they are animated graphics on top of your video, so they are here. The names come from Charlie Hills' carousel "Claude Motion Physics: 16 premium animations you can clone". Ours are our own versions.
@@ -476,7 +511,7 @@ Short, polished animations that work on their own or over your video, without ch
 | Button press | A cursor presses a button, it fills and turns into "Posted ✓" | "Add motion animation `buttonPress`: a cursor presses a 'Publish' button, it fills and turns into 'Posted ✓'." |
 | Confetti burst | A check badge pops and confetti bursts out | "Add motion animation `confettiBurst`: a check badge pops and confetti bursts out, with the text 'You're live'." |
 | Comment bubble | A viewer comment card pops in and gets a heart | "Add motion animation `commentBubble`: a viewer-style comment card pops in and gets a heart. Setting: comment text." |
-| Liquid Glass | A frosted glass bar with four icons slides up; a glass bubble hops between icons | "Add motion animation `liquidGlass`: a frosted glass bar slides up with four simple icons; a glass bubble hops from icon to icon and the active icon changes colour." (Ours is a blur, it does not bend the picture like real liquid glass. It plays over your video and does not change it.) |
+| Liquid Glass | A frosted glass bar with four icons slides up; a glass bubble hops between icons | "Add motion animation `liquidGlass`: a frosted glass bar slides up with four simple icons; a glass bubble hops from icon to icon and the active icon changes colour." (Ours is a blur, it does not bend the picture like real liquid glass.) |
 | Sticky text | A label sticks next to your head and follows you | "Add motion animation `stickyText`: a coloured label sticks next to my head and follows me as I move (uses face tracking). Setting: text." |
 
 ## Step 8 (optional): Add free Lottie animations
@@ -497,6 +532,8 @@ Add this robot animation at 0:02 for 3 seconds, above my head.
 ```
 
 4. **Keep a small list** of each animation you use (name, creator, link).
+
+**With Option C:** save the downloaded animation file in your folder and tell Claude its name, instead of attaching it.
 
 ### How it works
 
@@ -520,6 +557,12 @@ Using the word timings, cut pauses longer than 0.45 s and earlier tries of repea
 ```
 
    You get a list of the cuts (time, reason, what was said) before anything is cut, and can say "keep cut 3".
+
+**With Option C:** copy your video into the folder and tell Claude its name. Paste this prompt instead (only the first words change, and the network note):
+
+```text
+Here is my video (the file name is [name of the file]). Transcribe it on my computer with free models: copy only the audio to a 16 kHz WAV, get word timings from NVIDIA Parakeet TDT 0.6B v2 (int8, via pip sherpa-onnx, model from the k2-fsa/sherpa-onnx GitHub releases), get the words from Whisper large-v3-turbo (also via sherpa-onnx, in pieces of max 25 s cut at pauses). Keep Whisper's words with Parakeet's timings. If a download is blocked by my network, tell me which website is blocked. Ask me which language I speak and how to spell names or brands I mention. Give me a transcript table (start, end, text) and list every word where the two models disagree.
+```
 
 ### How it works
 
@@ -548,6 +591,8 @@ What Claude does:
 
 **Cutting pauses and retakes:** because every word has a time, Claude can find pauses longer than about half a second, earlier tries when you repeat a sentence (it keeps the **last** try), and restarts in the middle of a sentence.
 
+**Option C, how it works:** the cloud blocked some websites in my setup (that is why the models come from GitHub). On your own computer, the limits are the ones of your own network. I did not test the Parakeet and Whisper combination on a personal computer, only in the cloud. The Whisper-only backup further above is the one I tested on a MacBook.
+
 ## Step 10: Make the captions and place the animations
 
 ### What to do
@@ -572,6 +617,8 @@ Write the timeline: word-by-word captions at the bottom at one fixed height, pop
 
 4. **Watch the video and ask for changes** in plain words, for example "Move the big number to 0:14" or "Make the window bigger and put it above my head".
 
+**With Option C:** nothing changes. The finished MP4 is saved in your folder. To watch your changes before the final video is made, ask Claude to open a preview of the video (Remotion has a preview window for this).
+
 ### How it works
 
 Claude turns each change into an edit of `timeline.json` and renders a new version. Keep every version (v01, v02...) so you can go back. Claude checks the stills itself against your brand and layout rules before sending the video, so many problems are caught before you watch.
@@ -582,6 +629,7 @@ Checked on 2026-10-24. Licences can change, so check the links before using this
 
 | What | Cost / licence | Key terms (quoted) | Source |
 |---|---|---|---|
+| Claude Code on your computer (Option C) | Needs a Claude plan or another supported account | "A Claude subscription (Pro, Max, Team, or Enterprise), Claude Console account, or access through a supported cloud provider". I did not check how local use counts toward your plan's limits. | [Quickstart](https://code.claude.com/docs/en/quickstart.md) |
 | Claude | Paid plan | Cloud sessions "are available on Pro, Max, and Team plans" and count "toward your plan's usage limits ... there's no separate charge for the cloud VM". | [Claude Code docs](https://code.claude.com/docs/en/claude-code-on-the-web) |
 | Remotion | Free for some, paid for bigger companies | Free if you are "an individual", "a for-profit organization with up to 3 employees", "a non-profit or not-for-profit organization". Otherwise "You are required to obtain a Company License". "In Remotion 5.0, the license will slightly change." | [Remotion LICENSE.md](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) |
 | Remotion skills | Not verified | I could not find a licence file in the repository. | [remotion-dev/skills](https://github.com/remotion-dev/skills) |
@@ -601,4 +649,5 @@ Checked on 2026-10-24. Licences can change, so check the links before using this
 - Transcription was tested in English only, on my own voice. Parakeet v2 is an English model.
 - Cutting pauses and retakes was tested on one test video only, so check the cut list carefully.
 - Some effects are simpler versions (marked in the tables).
+- Option C (Claude Code on your computer) was **not** tested step by step. The Option C notes come from Claude's docs and from my own reasoning, and say so where I am unsure.
 - The safe-zone sizes are estimates, not official numbers.
