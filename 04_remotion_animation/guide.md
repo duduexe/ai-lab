@@ -4,7 +4,7 @@
 
 **You need:** a paid Claude plan (Pro or Max) and the Claude desktop app (or claude.ai/code in a browser), or Claude Code on your own computer (Option C in Step 1). A GitHub account is only needed in some cases (see Step 1).
 
-**Three ways to follow this guide:** Option A is a Claude project (what I use), Option B is a normal cloud session, Option C is Claude Code on your own computer. Every step has the same prompts for all three. Where Option C is different, a purple box tells you what to do.
+**Three ways to follow this guide:** Option A is a Claude project (what I use), Option B is a normal cloud session, Option C is Claude Code on your own computer. Every step has the same prompts for all three. Where Claude Code (Option C) is different, a purple box tells you what to do.
 
 **How to read this guide:** each step starts with **What to do** (the actions and the prompts to copy), then **How it works** (the details, if you are curious).
 
@@ -94,7 +94,7 @@ I want to animate my short videos (TikTok, Instagram Reels) with Remotion: word-
 - In the desktop app, a normal session does not pick Cloud for you: "Before you send your first message, choose the environment, project folder, permission mode, and model in the row under the prompt box." ([desktop docs](https://code.claude.com/docs/en/desktop.md))
 - A normal cloud session needs GitHub: "Cloud sessions require a connected GitHub account" and "You'll need a GitHub repository to get started" ([cloud quickstart](https://code.claude.com/docs/en/web-quickstart.md)). Your editor is saved in the repository, so nothing is lost when the cloud computer is wiped.
 
-**Option C, how it works:** Claude works on your own computer instead of an online one. Claude's docs list what you need: "A Claude subscription (Pro, Max, Team, or Enterprise)" or another supported account ([quickstart](https://code.claude.com/docs/en/quickstart.md)). The docs also say "Claude Code reads your project files as needed". Your files stay in your folder, so nothing is wiped when a session ends. Claude asks before it runs commands, depending on the permission mode you choose ([permission modes](https://code.claude.com/docs/en/permission-modes.md)). **My inference, not tested in this project:** the computer needs enough free space and speed for the video tools, and Claude has to install them first. I did not check Remotion's official list of requirements, so the first prompt asks Claude to find out for you.
+**If using Claude Code (Option C), how it works:** Claude works on your own computer instead of an online one. Claude's docs list what you need: "A Claude subscription (Pro, Max, Team, or Enterprise)" or another supported account ([quickstart](https://code.claude.com/docs/en/quickstart.md)). The docs also say "Claude Code reads your project files as needed". Your files stay in your folder, so nothing is wiped when a session ends. Claude asks before it runs commands, depending on the permission mode you choose ([permission modes](https://code.claude.com/docs/en/permission-modes.md)). **My inference, not tested in this project:** the computer needs enough free space and speed for the video tools, and Claude has to install them first. I did not check Remotion's official list of requirements, so the first prompt asks Claude to find out for you.
 
 ## Step 2: Add the Remotion skills
 
@@ -108,7 +108,7 @@ I want to animate my short videos (TikTok, Instagram Reels) with Remotion: word-
 Download the official Remotion agent skills from github.com/remotion-dev/skills, save them with my project files so they are kept for the next sessions, and follow them whenever you work on my videos.
 ```
 
-**With Option C:** nothing changes for Option 2: Claude saves the skills in your folder. Option 1 (the plugin) should work the same way in Claude Code, but I have not tested that.
+**If using Claude Code (Option C):** nothing changes for Option 2: Claude saves the skills in your folder. Option 1 (the plugin) should work the same way in Claude Code, but I have not tested that.
 
 ### How it works
 
@@ -153,7 +153,7 @@ Keep it simple and explain any design word you use.
 
 **Keep this brand file:** the setup prompt in the next step asks for it.
 
-**With Option C:** copy your brand files into your folder and tell Claude their names. Claude saves the brand file in your folder.
+**If using Claude Code (Option C):** copy your brand files into your folder and tell Claude their names. Claude saves the brand file in your folder.
 
 ### How it works
 
@@ -242,7 +242,7 @@ Before you start, ask me (one question at a time) for anything you need, for exa
 2. **Answer Claude's questions.**
 3. **Check the 5-second test video** and the still with the safe zones drawn on it. Compare it with a screenshot from your phone and ask for changes if needed.
 
-**With Option C:** the setup prompt is the same, with these differences:
+**If using Claude Code (Option C):** the setup prompt is the same, with these differences:
 
 1. When Claude asks where to save the editor, answer: **"Claude Code on my computer, save it in this folder."** (Item 2 of the prompt.)
 2. Instead of attaching the test video, **copy it into your folder** and tell Claude its name.
@@ -297,7 +297,7 @@ graphic, check the stills against my brand rules and the safe zones, and send th
 3. **Give feedback in plain words** ("no rotation", "bigger text"). Claude saves each rule in your brand file, so the next graphics follow it.
 4. **Whenever you want more, paste a prompt from the full list below**, one (or a few) at a time. Replace the example text with yours.
 
-**With Option C:** nothing changes except that videos and pictures are made on your computer and saved in your folder. If you send screenshots as examples, copy them into the folder.
+**If using Claude Code (Option C):** nothing changes except that videos and pictures are made on your computer and saved in your folder. If you send screenshots as examples, copy them into the folder.
 
 ### How it works
 
@@ -411,7 +411,7 @@ with my clip, plus stills, and tell me which ones are only partly done.
 2. **Say which effects you like** and whether you are OK with a cut-out of you, then check the demo video.
 3. **Whenever you want more, paste a prompt from the full list below.**
 
-**With Option C:** the cut-out and the face tracking need Python tools on your computer (Claude installs them, with your OK). In the cloud the cut-out took about 1.5 minutes for an 8-second clip. On your own computer the time depends on your machine, which I have not measured. If you send screenshots of effects you like, copy them into the folder.
+**If using Claude Code (Option C):** the cut-out and the face tracking need Python tools on your computer (Claude installs them, with your OK). In the cloud the cut-out took about 1.5 minutes for an 8-second clip. On your own computer the time depends on your machine, which I have not measured. If you send screenshots of effects you like, copy them into the folder.
 
 ### How it works
 
@@ -486,7 +486,7 @@ Before you start, ask me where I would use them. Then render a demo video and st
 Render one demo video with every graphic, effect and animation, 3 seconds each, with the name on screen.
 ```
 
-**With Option C:** nothing changes.
+**If using Claude Code (Option C):** nothing changes.
 
 ### How it works
 
@@ -533,7 +533,7 @@ Add this robot animation at 0:02 for 3 seconds, above my head.
 
 4. **Keep a small list** of each animation you use (name, creator, link).
 
-**With Option C:** save the downloaded animation file in your folder and tell Claude its name, instead of attaching it.
+**If using Claude Code (Option C):** save the downloaded animation file in your folder and tell Claude its name, instead of attaching it.
 
 ### How it works
 
@@ -558,7 +558,7 @@ Using the word timings, cut pauses longer than 0.45 s and earlier tries of repea
 
    You get a list of the cuts (time, reason, what was said) before anything is cut, and can say "keep cut 3".
 
-**With Option C:** copy your video into the folder and tell Claude its name. Paste this prompt instead (only the first words change, and the network note):
+**If using Claude Code (Option C):** copy your video into the folder and tell Claude its name. Paste this prompt instead (only the first words change, and the network note):
 
 ```text
 Here is my video (the file name is [name of the file]). Transcribe it on my computer with free models: copy only the audio to a 16 kHz WAV, get word timings from NVIDIA Parakeet TDT 0.6B v2 (int8, via pip sherpa-onnx, model from the k2-fsa/sherpa-onnx GitHub releases), get the words from Whisper large-v3-turbo (also via sherpa-onnx, in pieces of max 25 s cut at pauses). Keep Whisper's words with Parakeet's timings. If a download is blocked by my network, tell me which website is blocked. Ask me which language I speak and how to spell names or brands I mention. Give me a transcript table (start, end, text) and list every word where the two models disagree.
@@ -591,7 +591,7 @@ What Claude does:
 
 **Cutting pauses and retakes:** because every word has a time, Claude can find pauses longer than about half a second, earlier tries when you repeat a sentence (it keeps the **last** try), and restarts in the middle of a sentence.
 
-**Option C, how it works:** the cloud blocked some websites in my setup (that is why the models come from GitHub). On your own computer, the limits are the ones of your own network. I did not test the Parakeet and Whisper combination on a personal computer, only in the cloud. The Whisper-only backup further above is the one I tested on a MacBook.
+**If using Claude Code (Option C), how it works:** the cloud blocked some websites in my setup (that is why the models come from GitHub). On your own computer, the limits are the ones of your own network. I did not test the Parakeet and Whisper combination on a personal computer, only in the cloud. The Whisper-only backup further above is the one I tested on a MacBook.
 
 ## Step 10: Make the captions and place the animations
 
@@ -617,7 +617,7 @@ Write the timeline: word-by-word captions at the bottom at one fixed height, pop
 
 4. **Watch the video and ask for changes** in plain words, for example "Move the big number to 0:14" or "Make the window bigger and put it above my head".
 
-**With Option C:** nothing changes. The finished MP4 is saved in your folder. To watch your changes before the final video is made, ask Claude to open a preview of the video (Remotion has a preview window for this).
+**If using Claude Code (Option C):** nothing changes. The finished MP4 is saved in your folder. To watch your changes before the final video is made, ask Claude to open a preview of the video (Remotion has a preview window for this).
 
 ### How it works
 
