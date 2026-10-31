@@ -12,7 +12,7 @@
 
 **Picture: Steps 1 to 8 are done once, steps 9 and 10 for every video**
 
-![Steps 1 to 8 are done once, steps 9 and 10 for every video](images/261024_overview_steps_v03.png)
+![Steps 1 to 8 are done once, steps 9 and 10 for every video](images/261031_overview_steps_v01.png)
 
 ## What you get
 
@@ -260,13 +260,13 @@ Before you start, ask me (one question at a time) for anything you need, for exa
 
 **Picture: timeline.json shown as tracks over 10 seconds**
 
-![timeline.json shown as tracks over 10 seconds](images/261024_timeline_tracks_v02.png)
+![timeline.json shown as tracks over 10 seconds](images/261031_timeline_tracks_v01.png)
 
 **The layout rules.** The numbers in the prompt are the ones I use. They are estimates from online sources and a screenshot of my own phone, not official numbers.
 
 **Picture: Where things go on the screen on TikTok and Instagram**
 
-![Where things go on the screen on TikTok and Instagram](images/261024_screen_layout_v02.png)
+![Where things go on the screen on TikTok and Instagram](images/261031_screen_layout_v01.png)
 
 **The fixes in the prompt** come from my own tests: iPhone HDR videos looked orange until the colour information was relabelled, and Remotion sometimes could not download its browser in the cloud. Before filming, you can also turn off **HDR Video** in the iPhone camera settings, so no relabelling is needed.
 
@@ -313,11 +313,11 @@ The pictures below show some of my graphics on stand-in footage.
 
 **Picture: My graphics, screens and objects**
 
-![Examples from my library: screens and objects](images/261024_graphics_examples_screens_v01.jpg)
+![Examples from my library: screens and objects](images/261031_graphics_examples_screens_v01.jpg)
 
 **Picture: My graphics, numbers and charts**
 
-![Examples from my library: numbers and charts](images/261024_graphics_examples_charts_v01.jpg)
+![Examples from my library: numbers and charts](images/261031_graphics_examples_charts_v01.jpg)
 
 ### Full list of graphics
 
@@ -575,7 +575,7 @@ So we use **Whisper's words with Parakeet's timings**.
 
 **Picture: Whisper's words + Parakeet's timings, on "they can't seem to agree"**
 
-![Whisper's words and Parakeet's timings combined](images/261024_transcription_merge_v02.png)
+![Whisper's words and Parakeet's timings combined](images/261031_transcription_merge_v01.png)
 
 What Claude does:
 
