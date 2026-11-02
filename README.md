@@ -32,6 +32,13 @@ A step-by-step guide to adding word-by-word captions, graphics, effects and anim
 - [Guide (PDF)](04_remotion_animation/guide.pdf)
 - [Guide (read on GitHub, with every prompt)](04_remotion_animation/guide.md)
 
+### 05 Sort your photos, videos and sounds with Claude
+A free skill that sorts a folder of photos, videos and sounds into tidy folders, with a plan you approve first and a one-sentence undo. Works in Claude Code and in the Claude app. Free, other than a Claude subscription.
+
+- [Guide (PDF)](05_sort_my_media/guide.pdf)
+- [Guide (read on GitHub)](05_sort_my_media/guide.md)
+- [The skill (ZIP)](05_sort_my_media/sort-my-media.zip)
+
 New projects are added as new videos get posted. 
 
 ## How to use a project
