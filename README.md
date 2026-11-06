@@ -5,20 +5,7 @@ AI experiments from my TikTok/Instagram channels. Each folder is one video: the 
 - TikTok: dudu.experiments
 - Instagram: dudu.experiments
 
-## Projects
-
-### 01 Travel planning platform
-A page where friends coming from different cities choose a one-week holiday together. Made for our specific use case, so you'll have to adapt the cities and source data to yours.
-
-- Try it: https://duduexe.github.io/ai-lab/01_travel_platform/
-- [Prompt](01_travel_platform/prompt.md)
-
-### 02 Who Gets a Seat
-A guest list alignment platform where two people agree on who to invite to their wedding, in seven steps.
-
-- Try it: https://duduexe.github.io/ai-lab/02_who_gets_a_seat/
-- [Prompt](02_who_gets_a_seat/prompt.md)
-- [Guide (PDF)](02_who_gets_a_seat/guide.pdf)
+## VIDEO & MEDIA PROJECTS
 
 ### 03 Clone your own voice locally and for free
 A step-by-step guide to running a copy of your own voice on your own computer with OmniVoice, with no account, subscription or credit limits.
@@ -45,7 +32,23 @@ More than 300 text animations, transitions, effects, graphics, filters, lights a
 - Try it: https://duduexe.github.io/ai-lab/06_reel_library/
 - [README](06_reel_library/README.md)
 - [The whole library in one file](06_reel_library/library.md)
+- [Guide (PDF)](06_reel_library/guide.pdf)
 - [The skill (ZIP)](06_reel_library/video-animation-library-skill.zip)
+
+## OTHER PROJECTS
+
+### 01 Travel planning platform
+A page where friends coming from different cities choose a one-week holiday together. Made for our specific use case, so you'll have to adapt the cities and source data to yours.
+
+- Try it: https://duduexe.github.io/ai-lab/01_travel_platform/
+- [Prompt](01_travel_platform/prompt.md)
+
+### 02 Who Gets a Seat
+A guest list alignment platform where two people agree on who to invite to their wedding, in seven steps.
+
+- Try it: https://duduexe.github.io/ai-lab/02_who_gets_a_seat/
+- [Prompt](02_who_gets_a_seat/prompt.md)
+- [Guide (PDF)](02_who_gets_a_seat/guide.pdf)
 
 New projects are added as new videos get posted. 
 

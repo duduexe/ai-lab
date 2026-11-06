@@ -1,6 +1,6 @@
 # 06 Dudu Experiments' Reel Library
 
-Video: <add TikTok link>  |  Try it: https://duduexe.github.io/ai-lab/06_reel_library/  |  Guide: [How to use it](https://duduexe.github.io/ai-lab/06_reel_library/#how-to)
+Video: <add TikTok link>  |  Try it: https://duduexe.github.io/ai-lab/06_reel_library/  |  Guide: [guide.pdf](guide.pdf), or [How to use it](https://duduexe.github.io/ai-lab/06_reel_library/#how-to) on the site
 
 ## What it does
 A library of more than 300 ready-made elements for short vertical videos (1080 x 1920), with a live preview of each one. It is in 7 categories:
