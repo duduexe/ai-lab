@@ -29,7 +29,7 @@ A free skill that sorts a folder of photos, videos and sounds into tidy folders,
 ### 06 Dudu Experiments' Reel Library
 More than 300 text animations, transitions, effects, graphics, filters, lights and video styles for short vertical videos, each with a live preview, when to use it and a prompt to make it with Claude. Free, other than a Claude subscription. The library has its own stricter terms (see its README).
 
-- Try it: https://duduexe.github.io/ai-lab/06_reel_library/
+- Try it: [duduexe.github.io/ai-lab/06_reel_library](https://duduexe.github.io/ai-lab/06_reel_library/)
 - [README](06_reel_library/README.md)
 - [The whole library in one file](06_reel_library/library.md)
 - [Guide (PDF)](06_reel_library/guide.pdf)
@@ -40,13 +40,13 @@ More than 300 text animations, transitions, effects, graphics, filters, lights a
 ### 01 Travel planning platform
 A page where friends coming from different cities choose a one-week holiday together. Made for our specific use case, so you'll have to adapt the cities and source data to yours.
 
-- Try it: https://duduexe.github.io/ai-lab/01_travel_platform/
+- Try it: [duduexe.github.io/ai-lab/01_travel_platform](https://duduexe.github.io/ai-lab/01_travel_platform/)
 - [Prompt](01_travel_platform/prompt.md)
 
 ### 02 Who Gets a Seat
 A guest list alignment platform where two people agree on who to invite to their wedding, in seven steps.
 
-- Try it: https://duduexe.github.io/ai-lab/02_who_gets_a_seat/
+- Try it: [duduexe.github.io/ai-lab/02_who_gets_a_seat](https://duduexe.github.io/ai-lab/02_who_gets_a_seat/)
 - [Prompt](02_who_gets_a_seat/prompt.md)
 - [Guide (PDF)](02_who_gets_a_seat/guide.pdf)
 
