@@ -5,6 +5,7 @@
 
 This library (its descriptions, prompts, previews, pictures, skill and site) was compiled and made by Dudu.exe.
 - You may use the previews, prompts and skill to make your own videos, and post the videos you make.
+- You may download the preview videos and the zip for your own use, for example to show Claude what you want.
 - You may not sell, copy, republish or share this library or its content, in full or in part (for example as a template pack, a course, a paid or free download, or on another website).
 - The Dudu.exe logo and name may not be reused.
 The fonts, the emoji and Remotion below keep their own licences.
