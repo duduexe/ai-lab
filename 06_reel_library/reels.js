@@ -17,7 +17,7 @@
   document.head.appendChild(style);
 
   let reels = null;
-  fetch('reels/index.json')
+  fetch('reels/index.json', {cache: 'no-cache'})
     .then((r) => (r.ok ? r.json() : []))
     .then((list) => {
       reels = new Map(list.map((c) => [c.key, c]));
