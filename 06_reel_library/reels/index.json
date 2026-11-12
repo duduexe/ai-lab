@@ -2464,6 +2464,39 @@
   "size": 385656
  },
  {
+  "key": "4.2-taped-photo",
+  "name": "Taped Photo",
+  "section": "4.2 Cards, notes and signs",
+  "what": "A photo or clip in a light paper frame drops in, then a strip of tape lands on top",
+  "best": "A photo or screenshot as a souvenir",
+  "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: A photo or clip in a light paper frame drops in, then a strip of tape lands on top. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
+  "source": "Original, made with code",
+  "file": "reels/4.2-taped-photo.mp4",
+  "size": 64613
+ },
+ {
+  "key": "4.2-floating-cards",
+  "name": "Floating Cards",
+  "section": "4.2 Cards, notes and signs",
+  "what": "Cards with screenshots or clips fan out from the middle and keep floating gently",
+  "best": "Several screenshots or examples",
+  "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: Cards with screenshots or clips fan out from the middle and keep floating gently. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
+  "source": "Inspired by a public social media reel, our own version made with code",
+  "file": "reels/4.2-floating-cards.mp4",
+  "size": 161258
+ },
+ {
+  "key": "4.2-day-schedule-card",
+  "name": "Day Schedule Card",
+  "section": "4.2 Cards, notes and signs",
+  "what": "A dark phone card slides in showing a week strip and a day view with hour rows; one event block pops in on its hour, then a bright hand-drawn circle draws itself round it like a pen",
+  "best": "Saying when something happens, a plan for one day or a booked slot",
+  "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: dark phone card 400 px wide and 690 px tall (rounded, tilted -3 degrees, soft shadow), top left at x 70, y 620 (safe zone, clear of the app buttons); slides in from the right with a bounce in 0.55 s; top: week strip (letters M to S, dates, the chosen day in a bright circle), then the day name, then hour rows 08:00 to 12:00 (a small pixel-style label font) that fade in one by one; at 0.55 s a coloured event block with a bright left bar pops in on the 09:00 row (title in a clean sans font bold, time line under it, dark text); at 1.5 s a bright hand-drawn circle (9 px, a bit uneven, goes round more than once) draws itself round the block in 0.55 s; floats gently; fades out in the last 0.35 s.",
+  "source": "Inspired by a public social media reel, our own version made with code",
+  "file": "reels/4.2-day-schedule-card.mp4",
+  "size": 61004
+ },
+ {
   "key": "4.3-checklist",
   "name": "Checklist",
   "section": "4.3 Lists, steps and plans",
@@ -2576,7 +2609,7 @@
  {
   "key": "4.4-angled-screen",
   "name": "Angled Screen",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "A screen recording or screenshot on a tilted, see-through panel next to you. Option: angle 0 lies the panel flat and zooms on one part of the screen (zoom, focusX, focusY)",
   "best": "Showing a screen recording next to you",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: A screen recording or screenshot on a tilted, see-through panel next to you. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons). Option: angle 0 lies the panel flat and zooms on one part of the screen (zoom, focusX, focusY).",
@@ -2587,7 +2620,7 @@
  {
   "key": "4.4-program-window",
   "name": "Program Window",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "A program window, like a computer app, showing a screenshot of what the AI made, with a loading bar that fills",
   "best": "Showing what an AI or a tool made",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: A program window, like a computer app, showing a screenshot of what the AI made, with a loading bar that fills. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
@@ -2598,7 +2631,7 @@
  {
   "key": "4.4-prompt-box",
   "name": "Prompt Box",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "Prompt types in, phrase gets a marker, send button pressed",
   "best": "Showing a prompt being typed",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: Prompt types in, phrase gets a marker, send button pressed. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
@@ -2609,7 +2642,7 @@
  {
   "key": "4.4-search-bar",
   "name": "Search Bar",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "Search query types in, then the search button is pressed",
   "best": "Showing a search",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: Search query types in, then the search button is pressed. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
@@ -2620,7 +2653,7 @@
  {
   "key": "4.4-phone-messages",
   "name": "Phone Messages",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "A simple phone with chat bubbles and typing dots",
   "best": "A chat or text conversation",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: A simple phone with chat bubbles and typing dots. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons). with chat bubbles and typing dots.",
@@ -2631,7 +2664,7 @@
  {
   "key": "4.4-command-to-grid",
   "name": "Command to Grid",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "A dark terminal types a command, the answer line comes in with a bright tick, then the terminal moves up and a grid of named thumbnails pops in tile by tile, for example \"my animation library in one video\" (props command, result, names split by /, images, columns, typeAt, resultAt, gridAt)",
   "best": "Showing what one command gives you: a whole library, a set of results, many outputs at once",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: a dark terminal window types a command (\"/animation-library\") from 0.3 s; at 1.5 s an answer line (\"120 animations found in 8 styles\") comes in with a bright tick; at 2.3 s the terminal slides up and a grid of 3 columns of rounded thumbnails (pictures or short clips, or a coloured tile when missing), each with its name under it, pops in tile by tile; stays inside the safe zone; fades out at the end.",
@@ -2642,7 +2675,7 @@
  {
   "key": "4.4-retro-pop-up",
   "name": "Retro Pop-up",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "Retro computer props in one.exe look (bright title bar with a square close button, dark edge, coloured hard shadow). Kind notepad: a little text file whose lines type in one after the other. Kind error: an error box shakes in, a cursor glides to OK and clicks it, then the box closes (props kind, title, text with lines split by /, button, clickAt, -1 = no click; x, y, width)",
   "best": "A thought written down as a note, or a mistake and its fix told as a computer error",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: a retro program window 780 px wide, centred at x 540, y 720, with a bright title bar (title \"notes.txt\" or \"error.exe\"), a square close button, a dark edge and a hard coloured shadow. Notepad: lines of text type in one after the other in a mono font. Error: the box shakes in with a warning icon and a message, a cursor glides to the OK button and clicks it at 1.8 s, the button presses and the box closes. Stays inside the safe zone.",
@@ -2653,7 +2686,7 @@
  {
   "key": "4.4-glass-app-bar",
   "name": "Glass App Bar",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "A frosted glass bar slides up with four simple icons; a glass bubble hops from icon to icon and the active icon turns bright.",
   "best": "Switching between apps or features",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: a frosted glass bar slides up with four simple icons; a glass bubble hops from icon to icon and the active icon turns bright. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
@@ -2664,7 +2697,7 @@
  {
   "key": "4.4-button-cover",
   "name": "Button Cover",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "Fixes a button that is cut off or messy in a screen recording: a plain patch in the page colour hides the original, and a clean drawn button pops in next to it, whole and inside the safe zone. At the click it presses, a bright tick draws itself, the label changes (for example Copy to Copied) and a few bright sparks fly",
   "best": "A button you press in a screen recording is cut off at the edge or sits under the app buttons",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over a screen recording: a rectangle in the page colour covers a cut-off button at the right edge; a rounded dark button with a coloured edge and a copy icon pops in (0.3 s) next to it, fully visible; at the click time it presses down, a bright tick draws itself and the label changes to the done word, with a few bright sparks; it fades in the last 0.15 s. Stays inside the safe zone (left of x 887 below y 860), plain sans font for the button label.",
@@ -2675,7 +2708,7 @@
  {
   "key": "4.4-inset-clip",
   "name": "Inset Clip",
-  "section": "4.4 Apps, windows and screens",
+  "section": "4.4 Interface pieces",
   "what": "A second clip or picture in a rounded, pale frame on top of your video (picture in picture)",
   "best": "A second clip or picture next to you",
   "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: A second clip or picture in a rounded, pale frame on top of your video (picture in picture). Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
@@ -2684,37 +2717,37 @@
   "size": 21845
  },
  {
-  "key": "4.4-taped-photo",
-  "name": "Taped Photo",
-  "section": "4.4 Apps, windows and screens",
-  "what": "A photo or clip in a light paper frame drops in, then a strip of tape lands on top",
-  "best": "A photo or screenshot as a souvenir",
-  "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: A photo or clip in a light paper frame drops in, then a strip of tape lands on top. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
+  "key": "4.4-option-roller",
+  "name": "Option Roller",
+  "section": "4.4 Interface pieces",
+  "what": "A window with a roll of option stickers that clicks from one option to the next; the one in the middle turns bright between two arrows. With a pick it spins fast, slows down, stops on your option and a tick pops on. Options: pick (a name or a number), title, speed",
+  "best": "You choose between a few things (which model, which tool, which plan) and want to show the choice being made",
+  "prompt": "A motion graphic made with code for a 1080 x 1920 reel: a flat sticker window (bright title bar with three small squares and the words PICK ONE in a pixel font, white body, 4 px dark outline, hard dark shadow with no blur). Inside, a vertical roll of pill-shaped option stickers (white, dark outline and pixel text, small hard shadow). Every second the roll clicks one place up with a small bounce; the option in the middle is bigger and bright, between two dark arrow heads that point at it, and the options above and below fade towards the edges of the window. Ending version: the roll spins fast, slows down and stops on one option, the window shadow turns bright and a round bright sticker with a tick pops in next to the picked option. light background.",
   "source": "Original, made with code",
-  "file": "reels/4.4-taped-photo.mp4",
-  "size": 66295
+  "file": "reels/4.4-option-roller.mp4",
+  "size": 79562
  },
  {
-  "key": "4.4-floating-cards",
-  "name": "Floating Cards",
-  "section": "4.4 Apps, windows and screens",
-  "what": "Cards with screenshots or clips fan out from the middle and keep floating gently",
-  "best": "Several screenshots or examples",
-  "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: Cards with screenshots or clips fan out from the middle and keep floating gently. Pops in (about 0.4 s) and fades out (0.3 s), stays inside the safe zone (away from the app buttons).",
-  "source": "Inspired by a public social media reel, our own version made with code",
-  "file": "reels/4.4-floating-cards.mp4",
-  "size": 160127
+  "key": "4.4-loading-screen",
+  "name": "Loading Screen",
+  "section": "4.4 Interface pieces",
+  "what": "A loading window that counts to 100 like a real one (quick start, a short stall, then the rest), then says Ready with a tick. Three styles: blocks (ten squares fill one by one), ring (squares light up round the number) or tube (a tube fills with coloured behind a spinning sparkle). Options: style (blocks, ring, tube), title, speed",
+  "best": "Something is being made or the AI is working, and you want a short wait before the result",
+  "prompt": "A motion graphic made with code for a 1080 x 1920 reel: a flat sticker window (bright title bar with three small squares and the word LOADING in a pixel font, white body, 4 px dark outline, hard dark shadow with no blur). Inside: a big chunky dark number that counts from 0 to 100 with a percent sign, below it a row of ten outlined squares that fill bright one by one with a small pop (the newest one bright), and below that the word LOADING in a pixel font with three small squares that blink in turn. The count starts fast, stalls for a moment near 66, then finishes. At 100 the squares hop in a wave, the word becomes READY, the window shadow turns bright and a round bright sticker with a tick pops onto the top right corner. Other styles: twelve squares in a ring around the number, or a pill-shaped tube that fills with coloured behind a spinning bright four-point sparkle. light background.",
+  "source": "Original, made with code",
+  "file": "reels/4.4-loading-screen.mp4",
+  "size": 47479
  },
  {
-  "key": "4.4-day-schedule-card",
-  "name": "Day Schedule Card",
-  "section": "4.4 Apps, windows and screens",
-  "what": "A dark phone card slides in showing a week strip and a day view with hour rows; one event block pops in on its hour, then a bright hand-drawn circle draws itself round it like a pen",
-  "best": "Saying when something happens, a plan for one day or a booked slot",
-  "prompt": "A graphic animation made with code for a 1080 x 1920 reel that works over any video: dark phone card 400 px wide and 690 px tall (rounded, tilted -3 degrees, soft shadow), top left at x 70, y 620 (safe zone, clear of the app buttons); slides in from the right with a bounce in 0.55 s; top: week strip (letters M to S, dates, the chosen day in a bright circle), then the day name, then hour rows 08:00 to 12:00 (a small pixel-style label font) that fade in one by one; at 0.55 s a coloured event block with a bright left bar pops in on the 09:00 row (title in a clean sans font bold, time line under it, dark text); at 1.5 s a bright hand-drawn circle (9 px, a bit uneven, goes round more than once) draws itself round the block in 0.55 s; floats gently; fades out in the last 0.35 s.",
-  "source": "Inspired by a public social media reel, our own version made with code",
-  "file": "reels/4.4-day-schedule-card.mp4",
-  "size": 60767
+  "key": "4.4-magic-machine",
+  "name": "Magic Machine",
+  "section": "4.4 Interface pieces",
+  "what": "Plain white pages drop one by one into a small machine; it shakes, its sparkle spins, a lamp lights up, and each page comes out below as a colourful result card (a chart, a picture, a checklist). The three results line up as a fan. Options: label (the word on the machine), speed",
+  "best": "You show that a tool or an AI turns something plain (notes, files, a prompt) into finished results",
+  "prompt": "A motion graphic made with code for a 1080 x 1920 reel: in the upper middle a flat sticker machine: a window with a bright title bar (three small squares and the word MAGIC in a pixel font), a coloured body with three small lamps on the left, a white round lens in the middle holding a bright four-point sparkle, a small gauge on the right, a coloured funnel on top and a coloured chute below; 4 px dark outlines and hard dark shadows with no blur. Three plain white pages with pale coloured text lines fall from the top one after the other, a little tilted, into the funnel. Each time the machine squashes and shakes, the sparkle spins faster, small bright and bright sparkles pop around it, a lamp turns bright, and a colourful card slides out of the chute with a bounce: first a bright card with a bar chart, then a coloured card with a sun and a wave, then a bright card with a checklist, each with its name in a pixel font on a white strip. The three cards land side by side below the machine as a slight fan and hop once together. light background.",
+  "source": "Original, made with code",
+  "file": "reels/4.4-magic-machine.mp4",
+  "size": 119245
  },
  {
   "key": "4.5-folder-files",
@@ -3133,39 +3166,6 @@
   "source": "Inspired by a public social media reel, our own version made with code",
   "file": "reels/4.8-confetti-burst.mp4",
   "size": 95089
- },
- {
-  "key": "4.14-option-roller",
-  "name": "Option Roller",
-  "section": "4.14 Interface pieces",
-  "what": "A window with a roll of option stickers that clicks from one option to the next; the one in the middle turns bright between two arrows. With a pick it spins fast, slows down, stops on your option and a tick pops on. Options: pick (a name or a number), title, speed",
-  "best": "You choose between a few things (which model, which tool, which plan) and want to show the choice being made",
-  "prompt": "A motion graphic made with code for a 1080 x 1920 reel: a flat sticker window (bright title bar with three small squares and the words PICK ONE in a pixel font, white body, 4 px dark outline, hard dark shadow with no blur). Inside, a vertical roll of pill-shaped option stickers (white, dark outline and pixel text, small hard shadow). Every second the roll clicks one place up with a small bounce; the option in the middle is bigger and bright, between two dark arrow heads that point at it, and the options above and below fade towards the edges of the window. Ending version: the roll spins fast, slows down and stops on one option, the window shadow turns bright and a round bright sticker with a tick pops in next to the picked option. light background.",
-  "source": "Original, made with code",
-  "file": "reels/4.14-option-roller.mp4",
-  "size": 80488
- },
- {
-  "key": "4.14-loading-screen",
-  "name": "Loading Screen",
-  "section": "4.14 Interface pieces",
-  "what": "A loading window that counts to 100 like a real one (quick start, a short stall, then the rest), then says Ready with a tick. Three styles: blocks (ten squares fill one by one), ring (squares light up round the number) or tube (a tube fills with coloured behind a spinning sparkle). Options: style (blocks, ring, tube), title, speed",
-  "best": "Something is being made or the AI is working, and you want a short wait before the result",
-  "prompt": "A motion graphic made with code for a 1080 x 1920 reel: a flat sticker window (bright title bar with three small squares and the word LOADING in a pixel font, white body, 4 px dark outline, hard dark shadow with no blur). Inside: a big chunky dark number that counts from 0 to 100 with a percent sign, below it a row of ten outlined squares that fill bright one by one with a small pop (the newest one bright), and below that the word LOADING in a pixel font with three small squares that blink in turn. The count starts fast, stalls for a moment near 66, then finishes. At 100 the squares hop in a wave, the word becomes READY, the window shadow turns bright and a round bright sticker with a tick pops onto the top right corner. Other styles: twelve squares in a ring around the number, or a pill-shaped tube that fills with coloured behind a spinning bright four-point sparkle. light background.",
-  "source": "Original, made with code",
-  "file": "reels/4.14-loading-screen.mp4",
-  "size": 47041
- },
- {
-  "key": "4.14-magic-machine",
-  "name": "Magic Machine",
-  "section": "4.14 Interface pieces",
-  "what": "Plain white pages drop one by one into a small machine; it shakes, its sparkle spins, a lamp lights up, and each page comes out below as a colourful result card (a chart, a picture, a checklist). The three results line up as a fan. Options: label (the word on the machine), speed",
-  "best": "You show that a tool or an AI turns something plain (notes, files, a prompt) into finished results",
-  "prompt": "A motion graphic made with code for a 1080 x 1920 reel: in the upper middle a flat sticker machine: a window with a bright title bar (three small squares and the word MAGIC in a pixel font), a coloured body with three small lamps on the left, a white round lens in the middle holding a bright four-point sparkle, a small gauge on the right, a coloured funnel on top and a coloured chute below; 4 px dark outlines and hard dark shadows with no blur. Three plain white pages with pale coloured text lines fall from the top one after the other, a little tilted, into the funnel. Each time the machine squashes and shakes, the sparkle spins faster, small bright and bright sparkles pop around it, a lamp turns bright, and a colourful card slides out of the chute with a bounce: first a bright card with a bar chart, then a coloured card with a sun and a wave, then a bright card with a checklist, each with its name in a pixel font on a white strip. The three cards land side by side below the machine as a slight fan and hop once together. light background.",
-  "source": "Original, made with code",
-  "file": "reels/4.14-magic-machine.mp4",
-  "size": 119118
  },
  {
   "key": "5.1-warm-movie",
