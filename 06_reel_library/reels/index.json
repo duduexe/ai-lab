@@ -415,7 +415,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: One word, very big, bounces in. Brand fonts, pops in and fades out, inside the safe zone.",
   "source": "Original, made with code",
   "file": "reels/1.3-big-word.mp4",
-  "size": 42058
+  "size": 44895
  },
  {
   "key": "1.3-brush-highlight",
@@ -426,7 +426,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: Handwritten phrase on a coloured brush stroke, bright dash rays and underline, optional bold lines above. Brand fonts, pops in and fades out, inside the safe zone.",
   "source": "Original, made with code",
   "file": "reels/1.3-brush-highlight.mp4",
-  "size": 44244
+  "size": 46083
  },
  {
   "key": "1.3-hook-headline",
@@ -437,7 +437,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: Hook plus stacked headline for a talking-head opening. Brand fonts, pops in and fades out, inside the safe zone.",
   "source": "Original, made with code",
   "file": "reels/1.3-hook-headline.mp4",
-  "size": 41945
+  "size": 42024
  },
  {
   "key": "1.3-word-by-word-line",
@@ -448,7 +448,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: Main sentence builds word by word. Brand fonts, pops in and fades out, inside the safe zone.",
   "source": "Original, made with code",
   "file": "reels/1.3-word-by-word-line.mp4",
-  "size": 51944
+  "size": 50539
  },
  {
   "key": "1.3-shrink-to-dot",
@@ -459,7 +459,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: Text shrinks into a dot and disappears. Brand fonts, pops in and fades out, inside the safe zone.",
   "source": "Original, made with code",
   "file": "reels/1.3-shrink-to-dot.mp4",
-  "size": 35341
+  "size": 38206
  },
  {
   "key": "1.3-strike-through",
@@ -470,7 +470,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: A word or line gets crossed out with a marker line. Brand fonts, pops in and fades out, inside the safe zone.",
   "source": "Original, made with code",
   "file": "reels/1.3-strike-through.mp4",
-  "size": 37470
+  "size": 38849
  },
  {
   "key": "1.3-two-size-headline",
@@ -481,7 +481,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: one headline where the key words are big and bold (a bold rounded title font or a bold subtitle font, about 150 px) and the words between them are tiny italic (an italic caption font, about 62 px), on shared lines, centred, top at y 330 (inside the safe zone); each word pops in 0.09 s after the one before; the last big word in bright, the rest light or dark; fades out at the end. Big words are the ones written between stars.",
   "source": "Original, made with code",
   "file": "reels/1.3-two-size-headline.mp4",
-  "size": 35374
+  "size": 35238
  },
  {
   "key": "1.3-curved-text",
@@ -492,7 +492,7 @@
   "prompt": "An animated title for a 1080 x 1920 reel: a short phrase set along a curve, either an arch (a bow of about 150 degrees over a middle point) or a full circle round it, radius about 360 px, centred on your head (x 540, y 820); the letters appear one after the other along the curve in 0.7 s; optional slow spin round the middle (degrees per second) (a bold subtitle font, a bold rounded title font, a handwritten script font or a small pixel-style label font), pale; your cut-out on a layer above so the text passes behind your head; fades out at the end.",
   "source": "Original, made with code",
   "file": "reels/1.3-curved-text.mp4",
-  "size": 29641
+  "size": 29225
  },
  {
   "key": "1.3-flip-board-title",
@@ -503,7 +503,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: a flat sticker window (bright title bar with three small squares and a small name in a pixel font, 4 px dark outline, hard 8 px dark shadow with no blur, light inside) holding up to four rows of white flip tiles with a split line across the middle, one capital letter per tile in a chunky rounded font. Each tile flips through random letters like a split-flap board (top half folds down, about 12 flips a second) and locks on its letter with a tiny bump, left to right, row after row; the tiles of the last row turn bright when they lock. The window pops in with a small bounce and fades out at the end., inside the safe zone (840 px wide).",
   "source": "Original, made with code",
   "file": "reels/1.3-flip-board-title.mp4",
-  "size": 51593
+  "size": 72828
  },
  {
   "key": "1.3-pixel-decode-title",
@@ -514,7 +514,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: each letter of a short headline first shows as a flat square block (bright, coloured or white in turn, 4 px dark outline, hard dark shadow) with a random letter or digit in a pixel font that changes about ten times a second. One after the other, every 0.11 s, a block shrinks away and the real letter pops out with a bounce: chunky rounded capitals, white fill (bright on the last line), thick dark outline and a hard dark shadow. When all letters are there, a row of small bright squares with a dark outline builds under the title, square by square. Fades out at the end. light background or over the video.",
   "source": "Original, made with code",
   "file": "reels/1.3-pixel-decode-title.mp4",
-  "size": 48238
+  "size": 33825
  },
  {
   "key": "1.3-slot-reel-title",
@@ -525,7 +525,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: one small upright window per letter (rounded corners, 4 px dark outline, hard dark shadow, light inside with a soft shade at the top and bottom edge). In every window a strip of random capital letters in a chunky rounded dark font runs downward fast, slows down and lands on the right letter with a small overshoot; the windows stop one after the other, 0.2 s apart, from left to right, and a stopped window turns white with a tiny bump. When the last one stops, all hard shadows turn bright and two four-point sparkles (one bright, one bright, dark outline) pop in at the top right and bottom left and turn slowly. Fades out at the end..",
   "source": "Original, made with code",
   "file": "reels/1.3-slot-reel-title.mp4",
-  "size": 41273
+  "size": 41430
  },
  {
   "key": "1.3-domino-title",
@@ -536,7 +536,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: one line of chunky rounded sticker letters (white fill, thick dark outline, hard dark shadow; the last letter bright) pops in letter by letter. After a second the first letter tips over to the right around its bottom right corner and knocks the next one, and so on down the row, 0.1 s apart, each leaning about 50 degrees on its neighbour; the last letter only wobbles a little and holds. After a short pause the letters stand up again one by one from the far end, each with a springy overshoot. The cycle repeats. Fades out at the end. light background or over the video.",
   "source": "Original, made with code",
   "file": "reels/1.3-domino-title.mp4",
-  "size": 52509
+  "size": 61327
  },
  {
   "key": "1.3-word-swap-pill",
@@ -547,7 +547,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: a first line in chunky rounded sticker letters (white fill, thick dark outline, hard dark shadow). Under it a pill-shaped sticker tilted 2.5 degrees (bright, 4 px dark outline, hard dark shadow) holding one dark word. Every 1.15 s the word rolls up and out of the pill while the next word rolls in from below with a bounce; the pill changes width with a springy overshoot to fit the new word and rocks a little. On the last word the pill turns bright and stays. Fades out at the end., inside the safe zone.",
   "source": "Original, made with code",
   "file": "reels/1.3-word-swap-pill.mp4",
-  "size": 46059
+  "size": 48433
  },
  {
   "key": "1.3-spotlight-title",
@@ -558,7 +558,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: the headline in chunky rounded capitals is first drawn only as a pale ghost (see-through white fill, thick coloured outline). A flat bright disc about 330 px wide with a dark outline and a hard dark shadow pops in and wanders over the title along a looping path for 2.5 s; inside the disc the letters show in full: white fill (bright on the last line), thick dark outline, hard dark shadow. Then the disc grows fast past the edges of the frame and fades, leaving the whole title in full. Fades out at the end. light background or over the video.",
   "source": "Original, made with code",
   "file": "reels/1.3-spotlight-title.mp4",
-  "size": 109052
+  "size": 102202
  },
  {
   "key": "1.3-echo-stack-title",
@@ -569,7 +569,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: each line of chunky rounded letters (white fill, thick dark outline) shoots in from the side, the first line from the left and the second from the right, followed by four copies of itself in bright, coloured, bright and dark that arrive a moment later each, like an echo. The copies then slide out one by one, down and to the right, with a bounce, and stack under the word like thick layers of paper. While the title stays, the depth of the stack breathes slowly in a wave. Fades out at the end. light background or over the video.",
   "source": "Original, made with code",
   "file": "reels/1.3-echo-stack-title.mp4",
-  "size": 45313
+  "size": 125281
  },
  {
   "key": "1.3-letter-tiles-title",
@@ -580,7 +580,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel, like letters cut out and glued on: each capital letter sits on its own flat tile (white, bright, light or coloured in a mixed order, bright for the whole last line; 4 px dark outline, hard dark shadow, slightly different corner rounding), each tile tilted a few degrees and a little higher or lower than its neighbour. The letters use three fonts in turn (a chunky rounded one, a handwritten one and a pixel one), in dark. The tiles are slapped on one after the other, 0.07 s apart: each starts twice as big and turned, drops into place and squashes a little. Afterwards one random tile at a time hops up and rocks. Fades out at the end..",
   "source": "Original, made with code",
   "file": "reels/1.3-letter-tiles-title.mp4",
-  "size": 47617
+  "size": 57358
  },
  {
   "key": "1.3-tape-ticker-title",
@@ -591,7 +591,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: two flat tapes 160 px high cross the full width of the frame, a bright one tilted 6 degrees up to the right and, just under it, a coloured one tilted 5 degrees the other way, each with a dark line along both edges and a hard dark shadow below. The bright tape shoots in from the left, the coloured one from the right a moment later. Along each tape the title repeats in chunky rounded dark capitals with a turning four-point sparkle between the repeats (bright on the bright tape, white on the coloured one, dark outline); the text on the bright tape runs to the left, on the coloured tape to the right, without stopping. Fades out at the end..",
   "source": "Original, made with code",
   "file": "reels/1.3-tape-ticker-title.mp4",
-  "size": 49620
+  "size": 121062
  },
  {
   "key": "1.3-outline-draw-title",
@@ -602,7 +602,7 @@
   "prompt": "An animated title made with code for a 1080 x 1920 reel: chunky rounded capitals on up to three lines. First only a thin dashed coloured outline of the letters shows, its dashes marching along. Then a solid dark outline is drawn over it like a pen following every letter (about 1.3 s, the second line starts 0.3 s later). When the outline is done the dashes fade, and the letters fill with colour in a wipe from left to right: white, and bright for the last line. Last, a hard dark shadow pops out from behind the letters, down and to the right, with a small overshoot. Fades out at the end. light background or over the video.",
   "source": "Original, made with code",
   "file": "reels/1.3-outline-draw-title.mp4",
-  "size": 46020
+  "size": 44755
  },
  {
   "key": "2.1-cube-spin",
