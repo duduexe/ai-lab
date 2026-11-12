@@ -20,8 +20,8 @@ Every element says what it does, when to use it, and gives a prompt to make it f
 2. **Make a reel step by step:** the guide page of the site ("How to use it") explains how to make a reel with Claude, with prompts to start with.
 3. **Everything in one file:** [library.md](library.md) has every element as text (no pictures). Give it to Claude and ask for the elements you want.
 4. **Skill for Claude:** [the skill (ZIP)](video-animation-library-skill.zip), also as a folder in [skill/video-animation-library](skill/video-animation-library). Upload the zip as a skill in the Claude app, or put the folder in `~/.claude/skills/` for Claude Code.
-5. **A video of one element:** open a card and press **Download video** for a 4-second video of it (no sound). Give it to Claude with its prompt as an example of what you want. All videos are in [reels/](reels).
-6. **Videos + prompts:** [the whole library as a ZIP](reel-library-videos-and-prompts.zip) (about 50 MB): one folder per section, each video with a text file next to it (what it does, when to use it, its prompt), plus library.md.
+5. **A video of one element:** open a card and press **Download video** for a 4-second video of it (no sound). Give it to Claude with its prompt as an example of what you want. All videos are in [reels/](reels), and in the Download everything zip.
+6. **Download everything:** the button at the top of the site gives [the whole library as a ZIP](reel-library-videos-and-prompts.zip) (about 51 MB): one folder per section, each video with a text file next to it (what it does, when to use it, its prompt), plus library.md.
 
 ## Recreate it yourself
 Each element has its own prompt in the "Prompt" column of [library.md](library.md). Paste the prompt into Claude, with the tool you use (for example Remotion), your colours, your fonts and your text. Remotion's own skill helps when you build with Remotion (`npx skills add remotion-dev/skills`). See also [04 Animate your videos with Claude and Remotion](../04_remotion_animation/guide.md).
