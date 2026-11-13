@@ -9,6 +9,8 @@
   style.textContent = `
     .reel-dl { align-self: center; margin-top: -2px; }
     .reel-dl small { font-weight: 500; opacity: .75; }
+    .reel-host { position: relative; }
+    .reel-over { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; border-radius: inherit; background: #000; }
   `;
   document.head.appendChild(style);
 
@@ -30,10 +32,38 @@
     a.innerHTML = html;
     return a;
   };
+  // Cards whose example is a filmed clip the site cannot draw live (Camille's own footage): the card and its details
+  // show the filmed video instead (2026-11-12, Paper craft collage: "update the public one with this one").
+  const FILMED = new Set(['7.1-paper-craft-collage']);
+  const overlay = (host, key, play) => {
+    if (!host || host.querySelector(':scope > .reel-over')) return;
+    const v = document.createElement('video');
+    v.className = 'reel-over';
+    v.src = `reels/${key}.mp4`;
+    v.poster = `posters/${key}.jpg`;
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.preload = play ? 'auto' : 'none';
+    if (play) v.autoplay = true;
+    else {
+      host.addEventListener('mouseenter', () => v.play().catch(() => {}));
+      host.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+    }
+    host.classList.add('reel-host');
+    host.appendChild(v);
+  };
   const safe = (s) => s.replace(/[\\/:*?"<>|]+/g, '-').replace(/\s+/g, ' ').trim();
 
   const update = () => {
     if (!reels || !reels.size) return;
+    for (const key of FILMED) {
+      if (!reels.has(key)) continue;
+      for (const pic of document.querySelectorAll(`.lf-card[data-poster="${key}"] .lf-pic`)) overlay(pic, key, false);
+      const dpic = document.querySelector('.lf-card.on')?.dataset.poster === key ? document.querySelector('.lf-detail-pic') : null;
+      if (dpic && !dpic.querySelector('video[src^="reels/"]')) overlay(dpic, key, true);
+    }
     // The video of the open card, under its preview.
     const detail = document.querySelector('.lf-detail');
     if (!detail) return;
