@@ -2717,6 +2717,17 @@
   "size": 21845
  },
  {
+  "key": "4.4-screen-recording-tour",
+  "name": "Screen Recording Tour",
+  "section": "4.4 Interface pieces",
+  "what": "A screen recording pops in as a small glass window, fills with air in three puffs like a balloon and swells to the full screen. Then it plays full screen while a camera glides and zooms to each button, hand-drawn bright circles draw around them, small bright sparks mark each tap and a bright tick draws at the end. The recording can play slower or faster in each part so the taps land on the words. Option hand: instead of the balloon, a hand drawn in the brand lilacs holds the phone on a dotted page (like a halftone print), the recording plays inside the phone, the camera pushes in on the whole hand and phone, the marks are neat bright frames that draw themselves with a soft glow, taps are a white ring with small sparks, the tick sits on a bright disc; the browser bar becomes a dark home bar so captions stay readable (\"barGap\" scrolls the page up while the phone's own download sheet shows). Option real hand photo: a real photo of a hand holding the phone (made with Gemini on a green screen, the screen and background made see-through with projects/261112_ReelLibary2/build/hand_photo_key.py) replaces the drawn hand; the recording plays behind the photo, inside the phone, and every frame, tap and tick stays in place. Option still hand: the hand and phone never move (they are shown a bit smaller, scale around x 540 and y oy, and only fade in and out); the camera zooms the recording inside the phone screen instead, and a dark band rises from y band to the bottom, over the wrist, so the light captions read on a calm background. Option download all: the same hand and phone, smaller, rise on the left; the page shows \"Download all\", it is tapped, the phone's download sheet comes up (file name, site, a button that fills bright when tapped) and a dark \"saved\" bar with a bright tick comes in. Option split step 2 (splitStepDownloadAll, no hand and no phone, for the top half of a split screen with the same panel and step pill as split step 1: a browser window of the library slides in, template pictures pop into a grid while the number counts up, the \"Download all\" button catches the light, a cursor clicks it, the page dims, a zip card comes up and the templates fly behind it into the zip, its bar fills and a bright tick badge says saved",
+  "best": "Showing how to do something on a phone or web page, step by step",
+  "prompt": "A graphic animation made with code (Remotion) for a 1080 x 1920 reel: a tall phone screen recording starts as a small window with round corners and a thin glass rim on the left, inflates in three puffs (stretching like rubber, soft white shine) and swells to the full screen with a small wobble. It then plays full screen; a camera (zoom and position keyframes) glides to each button, a hand-drawn bright circle draws around it in 0.4 s, a few bright sparks burst at each tap, a bright tick draws at the end. Parts of the recording can play at different speeds. Keep the circles inside the safe zone where possible, no text. Code note:.",
+  "source": "Made by Claude with code for \"Reel Library 2\", no licence needed",
+  "file": "reels/4.4-screen-recording-tour.mp4",
+  "size": 376850
+ },
+ {
   "key": "4.4-option-roller",
   "name": "Option Roller",
   "section": "4.4 Interface pieces",

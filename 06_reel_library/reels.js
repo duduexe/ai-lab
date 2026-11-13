@@ -34,7 +34,7 @@
   };
   // Cards whose example is a filmed clip the site cannot draw live (Camille's own footage): the card and its details
   // show the filmed video instead (2026-11-12, Paper craft collage: "update the public one with this one").
-  const FILMED = new Set(['7.1-paper-craft-collage']);
+  const FILMED = new Set(['7.1-paper-craft-collage', '4.4-screen-recording-tour']);
   const overlay = (host, key, play) => {
     if (!host || host.querySelector(':scope > .reel-over')) return;
     const v = document.createElement('video');
