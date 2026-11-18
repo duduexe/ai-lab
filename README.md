@@ -35,6 +35,12 @@ More than 300 text animations, transitions, effects, graphics, filters, lights a
 - [Guide (PDF)](06_reel_library/guide.pdf)
 - [The skill (ZIP)](06_reel_library/video-animation-library-skill.zip)
 
+### 08 Install Sort my Media step by step
+A step-by-step install guide for the Sort my Media app, with two routes: Route A in the Terminal, Route B with the desktop app. Free, other than a Claude subscription.
+
+- [Guide (PDF)](08_sort_my_media_install/guide.pdf)
+- [The app on GitHub](https://github.com/duduexe/sort-my-media)
+
 ## OTHER PROJECTS
 
 ### 01 Travel planning platform
