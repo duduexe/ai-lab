@@ -25,6 +25,7 @@ A free skill that sorts a folder of photos, videos and sounds into tidy folders,
 - [Guide (PDF)](05_sort_my_media/guide.pdf)
 - [Guide (read on GitHub)](05_sort_my_media/guide.md)
 - [The skill (ZIP)](05_sort_my_media/sort-my-media.zip)
+- [The full app on GitHub](https://github.com/duduexe/sort-my-media)
 
 ### 06 Dudu Experiments' Reel Library
 More than 300 text animations, transitions, effects, graphics, filters, lights and video styles for short vertical videos, each with a live preview, when to use it and a prompt to make it with Claude. Free, other than a Claude subscription. The library has its own stricter terms (see its README).
