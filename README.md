@@ -36,6 +36,12 @@ More than 300 text animations, transitions, effects, graphics, filters, lights a
 - [Guide (PDF)](06_reel_library/guide.pdf)
 - [The skill (ZIP)](06_reel_library/video-animation-library-skill.zip)
 
+### 07 Turn yourself into a game character with Higgsfield Genjutsu
+A step-by-step guide to filming yourself once, then turning yourself into a video game character, changing your outfit and changing the place, all inside the same video. Needs a Higgsfield account with credits.
+
+- [Guide (PDF)](07_genjutsu_character_swap/guide.pdf)
+- [Guide (read on GitHub)](07_genjutsu_character_swap/guide.md)
+
 ### 08 Install Sort my Media step by step
 A step-by-step install guide for the Sort my Media app, with two routes: Route A in the Terminal, Route B with the desktop app. Free, other than a Claude subscription.
 
