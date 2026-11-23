@@ -48,6 +48,13 @@ A step-by-step install guide for the Sort my Media app, with two routes: Route A
 - [Guide (PDF)](08_sort_my_media_install/guide.pdf)
 - [The app on GitHub](https://github.com/duduexe/sort-my-media)
 
+### 09 Learn from your saved Instagram reels with Claude and Apify
+A step-by-step guide and a Claude skill that read the reels you saved on Instagram and tell you what they teach about design, topics, hooks and tips. You choose what to look for and approve the price before anything runs. Free, other than a Claude subscription.
+
+- [Guide (PDF)](09_saved_reels_analysis/guide.pdf)
+- [The skill (ZIP)](09_saved_reels_analysis/saved-reels-analyser.zip)
+- [Guide and skill together (ZIP)](09_saved_reels_analysis/saved-reels-analysis-all.zip)
+
 ## OTHER PROJECTS
 
 ### 01 Travel planning platform
