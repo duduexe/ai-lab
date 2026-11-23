@@ -51,6 +51,7 @@ A step-by-step install guide for the Sort my Media app, with two routes: Route A
 ### 09 Learn from your saved Instagram reels with Claude and Apify
 A step-by-step guide and a Claude skill that read the reels you saved on Instagram and tell you what they teach about design, topics, hooks and tips. You choose what to look for and approve the price before anything runs. Free, other than a Claude subscription, and it includes 5 USD of free Apify credits every month, which is well over 1,000 reels analysed (without transcripts).
 
+- Download page: [duduexe.github.io/ai-lab/09_saved_reels_analysis](https://duduexe.github.io/ai-lab/09_saved_reels_analysis/)
 - [Guide (PDF)](09_saved_reels_analysis/guide.pdf)
 - [The skill (ZIP)](09_saved_reels_analysis/saved-reels-analyser.zip)
 - [Guide and skill together (ZIP)](09_saved_reels_analysis/saved-reels-analysis-all.zip)

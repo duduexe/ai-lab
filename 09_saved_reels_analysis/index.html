@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learn from your saved Instagram reels | Dudu.exe</title>
+<meta name="description" content="A guide and a Claude skill that read the reels you saved on Instagram and tell you what they teach. Download the guide, the skill, or both." />
+<style>
+  @font-face { font-family: 'Poppins'; font-weight: 700; font-display: swap; src: url('Poppins-Bold.ttf') format('truetype'); }
+  @font-face { font-family: 'Poppins'; font-weight: 800; font-display: swap; src: url('Poppins-ExtraBold.ttf') format('truetype'); }
+  :root { --ink: #452785; --mist: #F3EDFF; --light: #E6D5FA; --orange: #EF9C54; --white: #FFFFFF; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--mist); }
+  body { color: var(--ink); font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; line-height: 1.55; min-height: 100vh; display: flex; justify-content: center; }
+  .wrap { width: 100%; max-width: 640px; padding: 40px 16px 56px; }
+  .logo { width: 140px; height: auto; display: block; margin-bottom: 40px; }
+  h1 { font-weight: 800; font-size: clamp(30px, 7vw, 44px); line-height: 1.1; margin: 0 0 16px; }
+  .what { font-size: 17px; margin: 0 0 16px; }
+  .btns { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+  .btn { display: block; text-align: center; text-decoration: none; font-weight: 800; font-size: 16px; padding: 16px 18px; border: 2px solid var(--ink); border-radius: 14px; background: var(--white); color: var(--ink); }
+  .btn.main { background: var(--orange); }
+  .btn:hover, .btn:focus-visible { background: var(--light); outline: none; }
+  .btn.main:hover, .btn.main:focus-visible { background: var(--light); }
+  .btn small { display: block; font-weight: 700; font-size: 13px; opacity: .8; }
+  .follow { margin: 32px 0 0; font-size: 16px; font-weight: 800; }
+  footer { margin-top: 20px; font-size: 13px; }
+  a { color: var(--ink); text-decoration-color: var(--orange); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <img class="logo" src="logo.png" alt="Dudu.exe" />
+
+  <h1>Learn from your saved Instagram reels</h1>
+  <p class="what">A guide and a Claude skill that read the reels you saved and tell you what they teach about design, topics, hooks and tips. You choose what to look for and approve the price before anything runs.</p>
+  <p class="what">It is free apart from your Claude subscription, and Apify's free 5 USD of credits every month cover well over 1,000 reels analysed (without transcripts).</p>
+
+  <div class="btns">
+    <a class="btn main" href="saved-reels-analysis-all.zip" download>Download the guide and the skill <small>ZIP, 2 MB</small></a>
+    <a class="btn" href="guide.pdf" download>Download only the guide <small>PDF, 9 pages</small></a>
+    <a class="btn" href="saved-reels-analyser.zip" download>Download only the skill <small>ZIP</small></a>
+  </div>
+
+  <p class="follow">Follow for more AI tools and tips on <a href="https://www.instagram.com/dudu.experiments/">@dudu.experiments</a></p>
+
+  <footer>&copy; 2026 Dudu.exe &middot; <a href="https://github.com/duduexe/ai-lab">More free projects</a></footer>
+</main>
+</body>
+</html>
