@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dudu Editor | Dudu.exe</title>
+<meta name="description" content="A free video editor for reels, TikToks and Shorts that runs on your Mac, with Claude doing the editing for you. Download the editor and the guides." />
+<style>
+  @font-face { font-family: 'Poppins'; font-weight: 700; font-display: swap; src: url('Poppins-Bold.ttf') format('truetype'); }
+  @font-face { font-family: 'Poppins'; font-weight: 800; font-display: swap; src: url('Poppins-ExtraBold.ttf') format('truetype'); }
+  :root { --ink: #452785; --mist: #F3EDFF; --light: #E6D5FA; --orange: #EF9C54; --white: #FFFFFF; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--mist); }
+  body { color: var(--ink); font-family: 'Poppins', system-ui, sans-serif; font-weight: 700; line-height: 1.55; min-height: 100vh; display: flex; justify-content: center; }
+  .wrap { width: 100%; max-width: 640px; padding: 40px 16px 56px; }
+  .logo { width: 140px; height: auto; display: block; margin-bottom: 40px; }
+  h1 { font-weight: 800; font-size: clamp(30px, 7vw, 44px); line-height: 1.1; margin: 0 0 16px; }
+  h2 { font-weight: 800; font-size: 18px; margin: 32px 0 0; }
+  .what { font-size: 17px; margin: 0 0 16px; }
+  .btns { margin-top: 12px; display: flex; flex-direction: column; gap: 12px; }
+  .btns.first { margin-top: 32px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .btn { display: block; text-align: center; text-decoration: none; font-weight: 800; font-size: 16px; padding: 16px 18px; border: 2px solid var(--ink); border-radius: 14px; background: var(--white); color: var(--ink); }
+  .btn.main { background: var(--orange); }
+  .btn:hover, .btn:focus-visible { background: var(--light); outline: none; }
+  .btn.main:hover, .btn.main:focus-visible { background: var(--light); }
+  .btn small { display: block; font-weight: 700; font-size: 13px; opacity: .8; }
+  .follow { margin: 32px 0 0; font-size: 16px; font-weight: 800; }
+  footer { margin-top: 20px; font-size: 13px; }
+  a { color: var(--ink); text-decoration-color: var(--orange); text-underline-offset: 3px; }
+  .hint { font-size: 15px; margin: 8px 0 0; }
+  .prompt { position: relative; margin-top: 12px; background: var(--white); border: 2px dashed var(--ink); border-radius: 14px; padding: 14px 16px 52px; font-size: 15px; }
+  .prompt .pl { display: block; font-weight: 800; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
+  .prompt .pt { display: block; word-break: break-word; }
+  .copy { position: absolute; right: 12px; bottom: 10px; font: inherit; font-weight: 800; font-size: 14px; color: var(--ink); background: var(--light); border: 2px solid var(--ink); border-radius: 10px; padding: 4px 14px; cursor: pointer; }
+  .copy:hover, .copy:focus-visible { background: var(--orange); outline: none; }
+  @media (max-width: 420px) { .pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <img class="logo" src="logo.png" alt="Dudu.exe" />
+  <h1>Dudu Editor: edit your reels with Claude</h1>
+  <p class="what">A free video editor for reels, TikToks and Shorts that runs on your own Mac. Describe your video, Claude writes the storyboard and builds the montage on a real timeline, then you change anything by hand or by asking. Over 350 animations and effects inside, and it learns your style as you go.</p>
+  <p class="what">You need a Mac and a Claude plan with Claude Code (Pro or higher). No API key, nothing else to pay. The editor speaks English and French.</p>
+
+  <div class="btns first">
+    <a class="btn main" href="https://github.com/duduexe/dudu-editor/archive/refs/heads/main.zip">Download the editor <small>ZIP from GitHub, about 26 MB</small></a>
+    <a class="btn" href="https://github.com/duduexe/dudu-editor">See the editor on GitHub <small>github.com/duduexe/dudu-editor</small></a>
+  </div>
+
+  <h2>Or let Claude set it up</h2>
+  <p class="hint">In the Claude desktop app, open <b>Code</b>, choose your home folder and paste one of these. Claude downloads the editor and asks you before each install.</p>
+  <div class="prompt"><span class="pl">English</span><span class="pt" id="p-en">Download Dudu Editor from https://github.com/duduexe/dudu-editor into my home folder, then set it up by following its SETUP.md. Ask me before you install anything.</span><button type="button" class="copy" data-for="p-en">Copy</button></div>
+  <div class="prompt"><span class="pl">Français</span><span class="pt" id="p-fr" lang="fr">Télécharge Dudu Editor depuis https://github.com/duduexe/dudu-editor dans mon dossier personnel, puis installe-le en suivant son fichier SETUP.md. Demande-moi avant d'installer quoi que ce soit. Parle-moi en français.</span><button type="button" class="copy" data-for="p-fr">Copier</button></div>
+
+  <!-- French guides off until the French PDFs are ready (2026-11-26). To put them back: class="btns pair" on both blocks, the English button text back to "English", and the Français links below. -->
+  <h2>Setup guide: get it running in 15 to 30 minutes</h2>
+  <div class="btns pair">
+    <a class="btn" href="setup_guide_en.pdf" download>English <small>PDF</small></a>
+    <!-- FR_SETUP <a class="btn" href="setup_guide_fr.pdf" download>Français <small>PDF</small></a> -->
+  </div>
+
+  <h2>How-to guide: make your first video</h2>
+  <div class="btns pair">
+    <a class="btn" href="usage_guide_en.pdf" download>English <small>PDF</small></a>
+    <!-- FR_USAGE <a class="btn" href="usage_guide_fr.pdf" download>Français <small>PDF</small></a> -->
+  </div>
+
+  <p class="follow">Follow for more AI tools and tips on <a href="https://www.instagram.com/dudu.experiments/">@dudu.experiments</a></p>
+  <footer>&copy; 2026 Dudu.exe &middot; Free to use with credit, not for resale (<a href="https://github.com/duduexe/dudu-editor/blob/main/LICENSE.md">licence</a>) &middot; <a href="https://github.com/duduexe/ai-lab">More free projects</a></footer>
+</main>
+<script>
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = document.getElementById(b.dataset.for).textContent, old = b.textContent;
+      var done = function () { b.textContent = old === 'Copier' ? 'Copié' : 'Copied'; setTimeout(function () { b.textContent = old; }, 1500); };
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, done); else done();
+    });
+  });
+</script>
+</body>
+</html>

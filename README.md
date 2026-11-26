@@ -56,6 +56,14 @@ A step-by-step guide and a Claude skill that read the reels you saved on Instagr
 - [The skill (ZIP)](09_saved_reels_analysis/saved-reels-analyser.zip)
 - [Guide and skill together (ZIP)](09_saved_reels_analysis/saved-reels-analysis-all.zip)
 
+### 10 Dudu Editor: edit your reels with Claude
+A free video editor for reels, TikToks and Shorts that runs on your own Mac. Describe your video, Claude writes the storyboard and builds it on a timeline, and you change anything by hand or by asking. Needs a Claude plan with Claude Code. Free to use with credit, not for resale.
+
+- Download page: [duduexe.github.io/ai-lab/10_dudu_editor](https://duduexe.github.io/ai-lab/10_dudu_editor/)
+- [The editor on GitHub](https://github.com/duduexe/dudu-editor)
+- [Setup guide (PDF)](10_dudu_editor/setup_guide_en.pdf)
+- [How-to guide (PDF)](10_dudu_editor/usage_guide_en.pdf)
+
 ## OTHER PROJECTS
 
 ### 01 Travel planning platform
